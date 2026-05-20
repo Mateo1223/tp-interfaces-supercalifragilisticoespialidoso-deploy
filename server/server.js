@@ -6,11 +6,11 @@ const server = jsonServer.create();
 const middlewares = jsonServer.defaults();
 
 const users = JSON.parse(
-  fs.readFileSync(path.join(dirname, 'users.json'))
+  fs.readFileSync(path.join(__dirname, 'data', 'users.json'))
 );
 
 const products = JSON.parse(
-  fs.readFileSync(path.join(dirname, 'products.json'))
+  fs.readFileSync(path.join(__dirname, 'data', 'products.json'))
 );
 
 const router = jsonServer.router({
