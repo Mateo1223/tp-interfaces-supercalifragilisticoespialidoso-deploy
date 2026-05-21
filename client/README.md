@@ -1,75 +1,93 @@
-# React + TypeScript + Vite
+# Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 19 + TypeScript + Vite + HeroUI + Tailwind CSS v4
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** con React Compiler habilitado
+- **Vite 5** como bundler
+- **HeroUI 3** como librería de componentes
+- **Tailwind CSS 4** para utilidades de layout y espaciado
+- **Zustand** para estado global
+- **SWR + Axios** para data fetching
+- **React Router 7** para navegación
 
-## React Compiler
+## Tokens semánticos de HeroUI
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+HeroUI expone variables CSS que cambian automáticamente entre light y dark mode.
+Siempre preferir estas clases sobre colores hardcodeados de Tailwind (`gray-*`, `white`, etc.).
 
-Note: This will impact Vite dev & build performances.
+### Colores de texto
 
-## Expanding the ESLint configuration
+| Clase Tailwind    | Variable       | Uso                                  |
+| ----------------- | -------------- | ------------------------------------ |
+| `text-foreground` | `--foreground` | Texto principal                      |
+| `text-muted`      | `--muted`      | Texto secundario, labels, subtítulos |
+| `text-link`       | `--link`       | Links                                |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Fondos
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Clase Tailwind         | Variable              | Uso                                    |
+| ---------------------- | --------------------- | -------------------------------------- |
+| `bg-background`        | `--background`        | Fondo de la página                     |
+| `bg-surface`           | `--surface`           | Fondo de cards y paneles               |
+| `bg-surface-secondary` | `--surface-secondary` | Fondo de secciones secundarias         |
+| `bg-surface-tertiary`  | `--surface-tertiary`  | Fondo de hover states o capas anidadas |
+| `bg-field-background`  | `--field-background`  | Fondo de inputs y campos de formulario |
+| `bg-overlay`           | `--overlay`           | Fondo de modals y drawers              |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Bordes
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Clase Tailwind     | Variable      | Uso                    |
+| ------------------ | ------------- | ---------------------- |
+| `border-border`    | `--border`    | Bordes generales       |
+| `border-separator` | `--separator` | Separadores y dividers |
+
+### Colores de estado
+
+| Clase Tailwind | Variable    | Uso               |
+| -------------- | ----------- | ----------------- |
+| `text-accent`  | `--accent`  | Acción principal  |
+| `text-success` | `--success` | Éxito             |
+| `text-warning` | `--warning` | Advertencia       |
+| `text-danger`  | `--danger`  | Error / peligro   |
+| `bg-accent`    | `--accent`  | Fondo acento      |
+| `bg-success`   | `--success` | Fondo éxito       |
+| `bg-warning`   | `--warning` | Fondo advertencia |
+| `bg-danger`    | `--danger`  | Fondo error       |
+
+### Utilidades propias de HeroUI
+
+| Clase              | Uso                                                 |
+| ------------------ | --------------------------------------------------- |
+| `focus-ring`       | Ring de foco accesible (reemplaza `outline` manual) |
+| `focus-field-ring` | Ring de foco para inputs                            |
+| `status-disabled`  | Aplica opacidad y cursor deshabilitado              |
+| `status-pending`   | Bloquea pointer events mientras carga               |
+
+### Ejemplo
+
+```tsx
+// Evitar
+<p className="text-gray-900 dark:text-white bg-white dark:bg-gray-900">
+
+// Preferir
+<p className="text-foreground bg-background">
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Convenciones
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Solo **arrow functions** (regla de ESLint activa)
+- `const` siempre que no se reasigne
+- Sin `var`
+- Pre-commit corre ESLint + Prettier automáticamente vía Husky
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Comandos
+
+```bash
+npm run dev          # servidor de desarrollo
+npm run build        # build de producción
+npm run lint         # linter
+npm run format       # formatear con Prettier
+npm run format:check # verificar formato sin escribir
 ```

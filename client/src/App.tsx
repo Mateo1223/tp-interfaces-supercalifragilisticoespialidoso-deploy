@@ -14,6 +14,7 @@ import {
   Switch,
   Tabs,
 } from '@heroui/react'
+import { useDarkMode } from './hooks/useDarkMode'
 
 interface User {
   id: number
@@ -24,16 +25,23 @@ interface User {
 const fetcher = (url: string) => axios.get<User[]>(url).then((res) => res.data)
 
 const App = () => {
+  const { dark, toggle } = useDarkMode()
   const [enabled, setEnabled] = useState(false)
   const { data: users, error, isLoading, mutate } = useSWR('http://localhost:3008/users', fetcher)
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center gap-10 p-10">
-      <h1 className="text-4xl font-bold text-gray-900">HeroUI Demo</h1>
+    <div className="min-h-screen bg-background flex flex-col items-center gap-10 p-10">
+      <div className="w-full max-w-2xl flex items-center justify-between">
+        <h1 className="text-4xl font-bold text-foreground">HeroUI Demo</h1>
+        <Switch isSelected={dark} onChange={toggle}>
+          <Switch.Content>{dark ? '🌙' : '☀️'}</Switch.Content>
+        </Switch>
+      </div>
 
       {/* Buttons */}
+
       <section className="flex flex-col gap-3 w-full max-w-2xl">
-        <h2 className="text-lg font-semibold text-gray-700">Buttons</h2>
+        <h2 className="text-lg font-semibold text-muted">Buttons</h2>
         <div className="flex gap-3 flex-wrap">
           <Button variant="primary">Primary</Button>
           <Button variant="secondary">Secondary</Button>
@@ -48,7 +56,7 @@ const App = () => {
 
       {/* Alerts */}
       <section className="flex flex-col gap-3 w-full max-w-2xl">
-        <h2 className="text-lg font-semibold text-gray-700">Alerts</h2>
+        <h2 className="text-lg font-semibold text-muted">Alerts</h2>
         <Alert status="default">
           <Alert.Title>Info</Alert.Title>
           <Alert.Description>Esto es un mensaje informativo.</Alert.Description>
@@ -71,7 +79,7 @@ const App = () => {
 
       {/* Chips + Badges + Avatars */}
       <section className="flex flex-col gap-4 w-full max-w-2xl">
-        <h2 className="text-lg font-semibold text-gray-700">Chips · Badges · Avatars</h2>
+        <h2 className="text-lg font-semibold text-muted">Chips · Badges · Avatars</h2>
         <div className="flex gap-2 flex-wrap">
           <Chip color="default">Default</Chip>
           <Chip color="accent">Accent</Chip>
@@ -103,7 +111,7 @@ const App = () => {
 
       {/* Switch */}
       <section className="flex flex-col gap-3 w-full max-w-2xl">
-        <h2 className="text-lg font-semibold text-gray-700">Switch</h2>
+        <h2 className="text-lg font-semibold text-muted">Switch</h2>
         <Switch isSelected={enabled} onChange={() => setEnabled((v) => !v)}>
           <Switch.Content>{enabled ? 'Activado' : 'Desactivado'}</Switch.Content>
         </Switch>
@@ -113,7 +121,7 @@ const App = () => {
 
       {/* Tabs */}
       <section className="flex flex-col gap-3 w-full max-w-2xl">
-        <h2 className="text-lg font-semibold text-gray-700">Tabs</h2>
+        <h2 className="text-lg font-semibold text-muted">Tabs</h2>
         <Tabs>
           <Tabs.List>
             <Tabs.Tab id="perfil">Perfil</Tabs.Tab>
@@ -137,7 +145,7 @@ const App = () => {
       {/* API fetch */}
       <section className="flex flex-col gap-4 w-full max-w-2xl">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-700">Usuarios desde API</h2>
+          <h2 className="text-lg font-semibold text-muted">Usuarios desde API</h2>
           <Button variant="outline" onClick={() => mutate()}>
             Recargar
           </Button>
@@ -167,8 +175,8 @@ const App = () => {
                     <Avatar.Fallback>{user.name.slice(0, 2).toUpperCase()}</Avatar.Fallback>
                   </Avatar>
                   <div>
-                    <p className="font-semibold text-gray-900">{user.name}</p>
-                    <p className="text-sm text-gray-500">{user.email}</p>
+                    <p className="font-semibold text-foreground">{user.name}</p>
+                    <p className="text-sm text-muted">{user.email}</p>
                   </div>
                   <Spinner className="ml-auto hidden" />
                 </Card.Content>
