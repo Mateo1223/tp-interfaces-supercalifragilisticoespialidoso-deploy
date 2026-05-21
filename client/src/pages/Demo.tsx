@@ -14,7 +14,7 @@ import {
   Switch,
   Tabs,
 } from '@heroui/react'
-import { useDarkMode } from './hooks/useDarkMode'
+import { useDarkMode } from '../hooks/useDarkMode'
 
 interface User {
   id: number
@@ -24,7 +24,7 @@ interface User {
 
 const fetcher = (url: string) => axios.get<User[]>(url).then((res) => res.data)
 
-const App = () => {
+const Demo = () => {
   const { dark, toggle } = useDarkMode()
   const [enabled, setEnabled] = useState(false)
   const { data: users, error, isLoading, mutate } = useSWR('http://localhost:3008/users', fetcher)
@@ -189,4 +189,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Demo
