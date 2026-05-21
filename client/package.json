@@ -25,9 +25,12 @@
     "@heroui/react": "^3.0.3",
     "@heroui/styles": "^3.0.3",
     "@tailwindcss/vite": "^4.2.4",
+    "axios": "^1.16.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "tailwindcss": "^4.2.4"
+    "swr": "^2.4.1",
+    "tailwindcss": "^4.2.4",
+    "zustand": "^5.0.13"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
