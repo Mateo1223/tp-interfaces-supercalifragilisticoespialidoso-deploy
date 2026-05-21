@@ -1,6 +1,19 @@
+import { useState } from 'react'
 import useSWR from 'swr'
 import axios from 'axios'
-import { Button, Card, Chip } from '@heroui/react'
+import {
+  Alert,
+  Avatar,
+  Badge,
+  Button,
+  Card,
+  Chip,
+  Separator,
+  Skeleton,
+  Spinner,
+  Switch,
+  Tabs,
+} from '@heroui/react'
 
 interface User {
   id: number
@@ -11,32 +24,159 @@ interface User {
 const fetcher = (url: string) => axios.get<User[]>(url).then((res) => res.data)
 
 const App = () => {
+  const [enabled, setEnabled] = useState(false)
   const { data: users, error, isLoading, mutate } = useSWR('http://localhost:3008/users', fetcher)
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center gap-8 p-8">
-      <h1 className="text-4xl font-bold text-gray-900">Usuarios desde API</h1>
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center gap-10 p-10">
+      <h1 className="text-4xl font-bold text-gray-900">HeroUI Demo</h1>
 
-      <Button variant="outline" onClick={() => mutate()}>
-        Recargar
-      </Button>
-
-      {isLoading && <p className="text-gray-500">Cargando...</p>}
-
-      {error && <Chip color="danger">{error.message}</Chip>}
-
-      {users && (
-        <div className="flex flex-col gap-3 w-full max-w-md">
-          {users.map((user) => (
-            <Card key={user.id}>
-              <Card.Content className="flex flex-col gap-1">
-                <p className="font-semibold text-gray-900">{user.name}</p>
-                <p className="text-sm text-gray-500">{user.email}</p>
-              </Card.Content>
-            </Card>
-          ))}
+      {/* Buttons */}
+      <section className="flex flex-col gap-3 w-full max-w-2xl">
+        <h2 className="text-lg font-semibold text-gray-700">Buttons</h2>
+        <div className="flex gap-3 flex-wrap">
+          <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="tertiary">Tertiary</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="danger">Danger</Button>
         </div>
-      )}
+      </section>
+
+      <Separator />
+
+      {/* Alerts */}
+      <section className="flex flex-col gap-3 w-full max-w-2xl">
+        <h2 className="text-lg font-semibold text-gray-700">Alerts</h2>
+        <Alert status="default">
+          <Alert.Title>Info</Alert.Title>
+          <Alert.Description>Esto es un mensaje informativo.</Alert.Description>
+        </Alert>
+        <Alert status="success">
+          <Alert.Title>Éxito</Alert.Title>
+          <Alert.Description>La operación se completó correctamente.</Alert.Description>
+        </Alert>
+        <Alert status="warning">
+          <Alert.Title>Atención</Alert.Title>
+          <Alert.Description>Revisá los datos antes de continuar.</Alert.Description>
+        </Alert>
+        <Alert status="danger">
+          <Alert.Title>Error</Alert.Title>
+          <Alert.Description>Algo salió mal. Intentá de nuevo.</Alert.Description>
+        </Alert>
+      </section>
+
+      <Separator />
+
+      {/* Chips + Badges + Avatars */}
+      <section className="flex flex-col gap-4 w-full max-w-2xl">
+        <h2 className="text-lg font-semibold text-gray-700">Chips · Badges · Avatars</h2>
+        <div className="flex gap-2 flex-wrap">
+          <Chip color="default">Default</Chip>
+          <Chip color="accent">Accent</Chip>
+          <Chip color="success">Success</Chip>
+          <Chip color="warning">Warning</Chip>
+          <Chip color="danger">Danger</Chip>
+        </div>
+        <div className="flex gap-4">
+          <Badge>
+            <Badge.Anchor>
+              <Avatar>
+                <Avatar.Fallback>JD</Avatar.Fallback>
+              </Avatar>
+            </Badge.Anchor>
+            <Badge.Label color="success">3</Badge.Label>
+          </Badge>
+          <Badge>
+            <Badge.Anchor>
+              <Avatar>
+                <Avatar.Fallback>AB</Avatar.Fallback>
+              </Avatar>
+            </Badge.Anchor>
+            <Badge.Label color="danger">!</Badge.Label>
+          </Badge>
+        </div>
+      </section>
+
+      <Separator />
+
+      {/* Switch */}
+      <section className="flex flex-col gap-3 w-full max-w-2xl">
+        <h2 className="text-lg font-semibold text-gray-700">Switch</h2>
+        <Switch isSelected={enabled} onChange={() => setEnabled((v) => !v)}>
+          <Switch.Content>{enabled ? 'Activado' : 'Desactivado'}</Switch.Content>
+        </Switch>
+      </section>
+
+      <Separator />
+
+      {/* Tabs */}
+      <section className="flex flex-col gap-3 w-full max-w-2xl">
+        <h2 className="text-lg font-semibold text-gray-700">Tabs</h2>
+        <Tabs>
+          <Tabs.List>
+            <Tabs.Tab id="perfil">Perfil</Tabs.Tab>
+            <Tabs.Tab id="config">Configuración</Tabs.Tab>
+            <Tabs.Tab id="notifs">Notificaciones</Tabs.Tab>
+          </Tabs.List>
+          <Tabs.Panel id="perfil" className="p-4">
+            Contenido del perfil.
+          </Tabs.Panel>
+          <Tabs.Panel id="config" className="p-4">
+            Opciones de configuración.
+          </Tabs.Panel>
+          <Tabs.Panel id="notifs" className="p-4">
+            No tenés notificaciones.
+          </Tabs.Panel>
+        </Tabs>
+      </section>
+
+      <Separator />
+
+      {/* API fetch */}
+      <section className="flex flex-col gap-4 w-full max-w-2xl">
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-gray-700">Usuarios desde API</h2>
+          <Button variant="outline" onClick={() => mutate()}>
+            Recargar
+          </Button>
+        </div>
+
+        {isLoading && (
+          <div className="flex flex-col gap-3">
+            {[1, 2, 3].map((n) => (
+              <Skeleton key={n} className="h-16 rounded-xl" />
+            ))}
+          </div>
+        )}
+
+        {error && (
+          <Alert status="danger">
+            <Alert.Title>No se pudo conectar</Alert.Title>
+            <Alert.Description>{error.message}</Alert.Description>
+          </Alert>
+        )}
+
+        {users && (
+          <div className="flex flex-col gap-3">
+            {users.map((user) => (
+              <Card key={user.id}>
+                <Card.Content className="flex items-center gap-4">
+                  <Avatar>
+                    <Avatar.Fallback>{user.name.slice(0, 2).toUpperCase()}</Avatar.Fallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-semibold text-gray-900">{user.name}</p>
+                    <p className="text-sm text-gray-500">{user.email}</p>
+                  </div>
+                  <Spinner className="ml-auto hidden" />
+                </Card.Content>
+              </Card>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   )
 }
