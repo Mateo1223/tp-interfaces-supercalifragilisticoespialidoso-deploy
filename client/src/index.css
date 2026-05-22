@@ -27,7 +27,7 @@
   /*    }*/
   /*}*/
   .search-field__group {
-    @apply shadow-none bg-(--default) border-0;
+    @apply shadow-none bg-default border-0;
   }
 
   .search-field__input {

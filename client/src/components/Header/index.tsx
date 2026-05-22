@@ -1,5 +1,6 @@
-import { Link, SearchField } from '@heroui/react'
+import { Avatar, Link, SearchField } from '@heroui/react'
 import clsx from 'clsx'
+import { ShoppingCart } from '@gravity-ui/icons'
 
 const Header = () => {
   const items = [
@@ -46,17 +47,19 @@ const Header = () => {
             ))}
           </ul>
         </div>
-        <div className="flex">
+        <div className="flex gap-6">
           <SearchField name="search">
             <SearchField.Group>
               <SearchField.SearchIcon />
-              <SearchField.Input
-                className="w-[280px] "
-                placeholder="Busca entre miles de productos"
-              />
+              <SearchField.Input className="w-70" placeholder="Busca entre miles de productos" />
               <SearchField.ClearButton />
             </SearchField.Group>
           </SearchField>
+          <Avatar color="danger" variant="soft">
+            <Avatar.Fallback>
+              <ShoppingCart />
+            </Avatar.Fallback>
+          </Avatar>
         </div>
       </nav>
     </header>
