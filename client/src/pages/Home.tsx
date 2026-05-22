@@ -1,7 +1,22 @@
+import { Switch } from '@heroui/react'
 import Header from '../components/Header'
+import { useDarkMode } from '../hooks/useDarkMode'
 
 const Home = () => {
-  return <Header />
+  const { dark, toggle } = useDarkMode()
+
+  return (
+    <main className="min-h-screen">
+      <Header />
+      <div className="container px-10 py-4">
+        <Switch isSelected={dark} onChange={toggle} aria-label="Dark mode">
+          <Switch.Control>
+            <Switch.Thumb />
+          </Switch.Control>
+        </Switch>
+      </div>
+    </main>
+  )
 }
 
 export default Home
