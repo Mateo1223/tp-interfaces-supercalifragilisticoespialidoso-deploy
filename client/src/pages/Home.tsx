@@ -1,12 +1,7 @@
-const home = () => {
-  return (
-    <div className="container">
-      <div className="container">
-        <h1>Home</h1>
-        <p>This is the home page.</p>
-      </div>
-    </div>
-  )
+import Header from '../components/Header'
+
+const Home = () => {
+  return <Header />
 }
 
-export default home
+export default Home

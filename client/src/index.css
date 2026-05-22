@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import 'tailwindcss';
 @import '@heroui/styles';
+
 @config "../tailwind.config.js";
 
 @theme {
@@ -11,4 +12,33 @@
   html {
     font-family: var(--font-sans);
   }
+}
+
+@layer components {
+  .search-field {
+    @apply shadow-none;
+  }
+
+  /* When invalid, the description is hidden automatically */
+  /*.search-field[data-invalid],*/
+  /*.search-field[aria-invalid] {*/
+  /*    [data-slot="description"] {*/
+  /*        @apply ;*/
+  /*    }*/
+  /*}*/
+  .search-field__group {
+    @apply shadow-none bg-[#EBEBEC];
+  }
+
+  .search-field__input {
+    @apply text-black;
+  }
+
+  .search-field__search-icon {
+    @apply text-black;
+  }
+
+  /*.search-field__clear-button {*/
+  /*    @apply ;*/
+  /*}*/
 }
