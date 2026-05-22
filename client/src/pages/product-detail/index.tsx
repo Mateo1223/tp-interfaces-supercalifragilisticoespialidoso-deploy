@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { Button } from '@heroui/react'
+import { Button, Card } from '@heroui/react'
 import { ArrowRotateLeft, ShoppingCart } from '@gravity-ui/icons'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import { mockProduct } from '../mocks/product'
-import type { Product } from '../types/product'
-import { formatPrice } from '../utils/format'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import { mockProduct } from '../../mocks/product.ts'
+import type { Product } from '../../types/product.ts'
+import { formatPrice } from '../../utils/format.ts'
 
 const formatSales = (count: number) =>
   count >= 1000 ? `+${Math.floor(count / 1000)}k` : `+${count}`
@@ -75,15 +75,17 @@ const ProductDetail = () => {
             </Button>
           </div>
 
-          <div className="flex items-center gap-3.5 bg-surface-secondary rounded-2xl p-5">
-            <div className="bg-white dark:bg-white/20 rounded-lg flex items-center justify-center shrink-0 size-8">
-              <ArrowRotateLeft width={14} height={14} className="text-foreground" />
-            </div>
-            <div>
-              <p className="text-sm font-bold">Cambios gratis 30 días</p>
-              <p className="text-xs text-muted">Cambios y devoluciones a domicilio sin costo</p>
-            </div>
-          </div>
+          <Card className="p-5 bg-surface-secondary">
+            <Card.Content className="flex-row items-center gap-3.5">
+              <div className="bg-surface-secondary rounded-lg flex items-center justify-center shrink-0 size-8">
+                <ArrowRotateLeft width={14} height={14} className="text-foreground" />
+              </div>
+              <div>
+                <p className="text-sm font-bold">Cambios gratis 30 días</p>
+                <p className="text-xs text-muted">Cambios y devoluciones a domicilio sin costo</p>
+              </div>
+            </Card.Content>
+          </Card>
         </div>
       </section>
       <Footer />

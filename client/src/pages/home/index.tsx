@@ -1,7 +1,7 @@
 import { Switch } from '@heroui/react'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import { useDarkMode } from '../hooks/useDarkMode'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import { useDarkMode } from '../../hooks/useDarkMode.ts'
 
 const Home = () => {
   const { dark, toggle } = useDarkMode()

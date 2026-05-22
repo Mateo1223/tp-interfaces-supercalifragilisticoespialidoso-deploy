@@ -13,8 +13,8 @@ const NAV_ITEMS = [
 
 const Header = () => {
   return (
-    <header className="w-full py-4 bg-background">
-      <nav className="flex items-center justify-between container px-10">
+    <header className="min-w-full py-4 bg-backgroun/cled">
+      <nav className="flex items-center min-w-full justify-between container px-10">
         <div className="flex">
           <Logo />
           <ul className="flex px-10 gap-6">

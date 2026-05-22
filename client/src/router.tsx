@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router'
 import AppLayout from './layouts/AppLayout'
-import Checkout from './pages/Checkout'
-import Demo from './pages/Demo'
-import Home from './pages/Home'
-import OrderSearch from './pages/OrderSearch'
-import OrderTracking from './pages/OrderTracking'
-import ProductDetail from './pages/ProductDetail'
+import Checkout from './pages/checkout'
+import Demo from './pages/demo'
+import Home from './pages/home'
+import OrderSearch from './pages/order-search'
+import OrderTracking from './pages/order-tracking'
+import ProductDetail from './pages/product-detail'
 
 export const router = createBrowserRouter([
   {

@@ -1,12 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Button, Card } from '@heroui/react'
-import { Trolley, ArrowRotateLeft } from '@gravity-ui/icons'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-
-const inputCls =
-  'bg-field-background border border-border rounded-xl px-3.5 py-[11px] text-sm text-foreground placeholder:text-muted w-full outline-none focus:border-(--focus) transition-colors'
+import { Button, Card, Input, TextField } from '@heroui/react'
+import { ArrowRotateLeft, Trolley } from '@gravity-ui/icons'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
 
 const OrderSearch = () => {
   const navigate = useNavigate()
@@ -31,13 +28,14 @@ const OrderSearch = () => {
             Ingresá el número de pedido que recibiste en tu email de confirmación.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <input
-              className={inputCls}
-              placeholder="Ej: HR-2026-008417"
-              value={orderNumber}
-              onChange={(e) => setOrderNumber(e.target.value)}
-              autoFocus
-            />
+            <TextField name="orderNumber" fullWidth>
+              <Input
+                placeholder="Ej: HR-2026-008417"
+                value={orderNumber}
+                onChange={(e) => setOrderNumber(e.target.value)}
+                autoFocus
+              />
+            </TextField>
             <Button variant="primary" fullWidth className="rounded-full" type="submit">
               Buscar pedido
             </Button>
