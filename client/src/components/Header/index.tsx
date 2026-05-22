@@ -3,43 +3,23 @@ import clsx from 'clsx'
 import { ShoppingCart } from '@gravity-ui/icons'
 import Logo from '../Logo'
 
-const Header = () => {
-  const items = [
-    {
-      text: 'Todo',
-      icon: false,
-      underline: false,
-    },
-    {
-      text: 'Remeras',
-      icon: false,
-      underline: false,
-    },
-    {
-      text: 'Pantalones',
-      icon: false,
-      underline: false,
-    },
-    {
-      text: 'Zapatillas',
-      icon: false,
-      underline: false,
-    },
-    {
-      text: 'Seguir mi compra',
-      icon: true,
-      underline: true,
-    },
-  ]
+const NAV_ITEMS = [
+  { text: 'Todo', icon: false, underline: false },
+  { text: 'Remeras', icon: false, underline: false },
+  { text: 'Pantalones', icon: false, underline: false },
+  { text: 'Zapatillas', icon: false, underline: false },
+  { text: 'Seguir mi compra', icon: true, underline: true },
+]
 
+const Header = () => {
   return (
-    <header className="w-full py-4">
+    <header className="w-full py-4 bg-background">
       <nav className="flex items-center justify-between container px-10">
         <div className="flex">
           <Logo />
           <ul className="flex px-10 gap-6">
-            {items.map((item, i) => (
-              <li key={i}>
+            {NAV_ITEMS.map((item) => (
+              <li key={item.text}>
                 <Link
                   className={clsx(
                     'whitespace-nowrap',

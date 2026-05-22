@@ -44,6 +44,7 @@
   --surface-tertiary-foreground: oklch(21.03% 0.0015 27.99);
   --warning: oklch(78.19% 0.159 45.23);
   --warning-foreground: oklch(21.03% 0.0059 45.23);
+  --page-bg: oklch(97.84% 0 0);
   --radius: 0.5rem;
   --field-radius: 0.75rem;
 }
@@ -80,6 +81,7 @@
   --surface-secondary-foreground: oklch(99.11% 0.0015 27.99);
   --surface-tertiary: oklch(27.21% 0.0023 27.99);
   --surface-tertiary-foreground: oklch(99.11% 0.0015 27.99);
+  --page-bg: oklch(12% 0.0015 27.99);
   --warning: oklch(82.03% 0.1392 49.24);
   --warning-foreground: oklch(21.03% 0.0059 49.24);
 }
@@ -96,6 +98,13 @@
 }
 
 @layer components {
+  .card {
+    --tw-shadow: 0 0 #0000;
+    box-shadow: none;
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) * 2);
+  }
+
   .search-field {
     @apply shadow-none;
   }
