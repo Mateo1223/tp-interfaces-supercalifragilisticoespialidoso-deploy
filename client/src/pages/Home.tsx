@@ -1,4 +1,5 @@
 import { Switch } from '@heroui/react'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { useDarkMode } from '../hooks/useDarkMode'
 
@@ -15,6 +16,7 @@ const Home = () => {
           </Switch.Control>
         </Switch>
       </div>
+      <Footer />
     </main>
   )
 }
