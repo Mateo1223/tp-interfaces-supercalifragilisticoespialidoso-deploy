@@ -6,8 +6,14 @@ import ItemsCard from '../../components/ItemsCard'
 import PaymentSummary from '../../components/PaymentSummary'
 import PaymentForm from './components/PaymentForm'
 import ShippingForm from './components/ShippingForm.tsx'
-import Stepper from './components/Stepper.tsx'
+import Stepper, { type Step } from '../../components/Stepper'
 import { mockCart } from '../../mocks/cart.ts'
+
+const STEPS: Step[] = [
+  { label: 'Carrito', status: 'completed' },
+  { label: 'Pago', status: 'current' },
+  { label: 'Confirmación', status: 'pending' },
+]
 
 const Checkout = () => {
   const cart = mockCart
@@ -23,7 +29,7 @@ const Checkout = () => {
           <div className="flex items-center justify-between mb-8">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-medium">Finalizar compra</h1>
             <div className="hidden sm:block">
-              <Stepper />
+              <Stepper steps={STEPS} />
             </div>
           </div>
 
