@@ -42,6 +42,7 @@ const Header = () => {
               <li key={i}>
                 <Link
                   className={clsx(
+                    'whitespace-nowrap',
                     item.underline
                       ? 'underline decoration-(--accent) text-(--foreground)'
                       : 'no-underline',
