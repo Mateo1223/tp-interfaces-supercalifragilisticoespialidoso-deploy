@@ -1,2 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import 'tailwindcss';
 @import '@heroui/styles';
+@config "../tailwind.config.js";
+
+@theme {
+  --font-sans: 'Outfit', ui-sans-serif, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+}
