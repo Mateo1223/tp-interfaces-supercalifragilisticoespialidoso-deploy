@@ -2,6 +2,8 @@ import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useEnrichedCart } from './useEnrichedCart'
 import { fetcher } from '../lib/fetcher'
+import { API } from '../config/api'
+import { ROUTES } from '../config/routes'
 import type { Cart, CartItem } from '../types/cart'
 import type { Product } from '../types/product'
 import type { Order } from '../types/order'
@@ -9,10 +11,10 @@ import type { Order } from '../types/order'
 const validateCvv = (cvv: string) => cvv !== '666'
 
 const fetchProducts = (items: CartItem[]) =>
-  Promise.all(items.map((item) => fetcher<Product>(`/api/products/${item.productId}`)))
+  Promise.all(items.map((item) => fetcher<Product>(API.PRODUCT(item.productId))))
 
 const postOrder = async (payload: object): Promise<{ id: string; orderNumber: string }> => {
-  const res = await fetch('/api/orders', {
+  const res = await fetch(API.ORDERS, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -24,7 +26,7 @@ const postOrder = async (payload: object): Promise<{ id: string; orderNumber: st
 const updateStock = (items: CartItem[], products: Product[]) =>
   Promise.all(
     items.map((item, i) =>
-      fetch(`/api/products/${item.productId}`, {
+      fetch(API.PRODUCT(item.productId), {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ totalStock: products[i].totalStock - item.quantity }),
@@ -180,7 +182,7 @@ export const usePlaceOrder = () => {
 
   const placeOrder = async (formData: CheckoutFormData) => {
     if (!validateCvv(formData.cvv)) {
-      navigate('/checkout/error')
+      navigate(ROUTES.CHECKOUT_ERROR)
       return
     }
 
@@ -195,9 +197,9 @@ export const usePlaceOrder = () => {
 
       submitted.current = true
       clearCart()
-      navigate(`/checkout/success?order.id=${createdOrder.orderNumber}`)
+      navigate(`${ROUTES.CHECKOUT_SUCCESS}?order.id=${createdOrder.orderNumber}`)
     } catch {
-      navigate('/checkout/error')
+      navigate(ROUTES.CHECKOUT_ERROR)
     } finally {
       setIsLoading(false)
     }

@@ -1,10 +1,11 @@
 import useSWR from 'swr'
 import { fetcher } from '../lib/fetcher'
+import { API } from '../config/api'
 import type { Order } from '../types/order'
 
 export const useOrder = (orderNumber: string) => {
   const { data, isLoading, error } = useSWR<Order[]>(
-    orderNumber ? `/api/orders?orderNumber=${orderNumber}` : null,
+    orderNumber ? API.ORDER_BY_NUMBER(orderNumber) : null,
     fetcher,
   )
 

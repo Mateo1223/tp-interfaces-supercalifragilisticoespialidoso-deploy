@@ -10,6 +10,7 @@ import { useProduct } from '../../hooks/useProduct'
 import { usePageTitle } from '../../hooks/usePageTitle'
 import { useCart } from '../../hooks/useCart'
 import EmptyState from '../../components/EmptyState'
+import { ROUTES } from '../../config/routes'
 
 const formatSales = (count: number) =>
   count >= 1000 ? `+${Math.floor(count / 1000)}k` : `+${count}`
@@ -30,7 +31,7 @@ const ProductDetail = () => {
         icon={<ShoppingCart width={24} height={24} className="text-(--accent)" />}
         title="Producto no encontrado"
         description="El producto que buscás no existe o fue removido."
-        action={{ label: 'Ver productos', onClick: () => navigate('/list') }}
+        action={{ label: 'Ver productos', onClick: () => navigate(ROUTES.LIST) }}
       />
     )
 
@@ -110,7 +111,7 @@ const ProductDetail = () => {
               icon={<ArrowRotateLeft width={18} height={18} className="text-(--accent)" />}
               title="Cambios gratis 30 días"
               description="Cambios y devoluciones a domicilio sin costo"
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate(ROUTES.CONTACT)}
             />
           </div>
         </TwoColumnLayout.Sidebar>

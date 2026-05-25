@@ -1,6 +1,7 @@
 import { CircleXmark } from '@gravity-ui/icons'
 import { useNavigate } from 'react-router'
 import EmptyState from '../../../components/EmptyState'
+import { ROUTES } from '../../../config/routes'
 
 const OrderNotFound = ({ orderNumber }: { orderNumber: string }) => {
   const navigate = useNavigate()
@@ -14,7 +15,7 @@ const OrderNotFound = ({ orderNumber }: { orderNumber: string }) => {
           <p className="font-medium text-(--accent)">{orderNumber}</p>
         </>
       }
-      action={{ label: 'Buscar otro pedido', onClick: () => navigate('/order') }}
+      action={{ label: 'Buscar otro pedido', onClick: () => navigate(ROUTES.TRACKING) }}
     />
   )
 }

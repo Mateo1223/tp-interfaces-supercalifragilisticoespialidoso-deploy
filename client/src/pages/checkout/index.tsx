@@ -10,6 +10,7 @@ import Main from '../../components/Main'
 import TwoColumnLayout from '../../components/TwoColumnLayout'
 import { type CheckoutFormData, usePlaceOrder } from '../../hooks/usePlaceOrder'
 import { usePageTitle } from '../../hooks/usePageTitle'
+import { ROUTES } from '../../config/routes'
 
 const STEPS: Step[] = [
   { label: 'Carrito', status: 'completed' },
@@ -21,7 +22,7 @@ const Checkout = () => {
   usePageTitle('Finalizar compra')
   const { placeOrder, isLoading, items, subtotal, isEmpty, submitted } = usePlaceOrder()
 
-  if (isEmpty && !submitted.current) return <Navigate to="/list" replace />
+  if (isEmpty && !submitted.current) return <Navigate to={ROUTES.LIST} replace />
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

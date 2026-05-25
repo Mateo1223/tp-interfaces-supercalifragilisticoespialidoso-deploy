@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router'
 import { Comment } from '@gravity-ui/icons'
 import InfoCard from '../InfoCard'
+import { ROUTES } from '../../config/routes'
 
 const HelpCard = () => {
   const navigate = useNavigate()
@@ -9,7 +10,7 @@ const HelpCard = () => {
       icon={<Comment width={18} height={18} className="text-(--accent)" />}
       title="Necesito ayuda"
       description="Hablá con nuestro equipo"
-      onClick={() => navigate('/contact')}
+      onClick={() => navigate(ROUTES.CONTACT)}
     />
   )
 }
