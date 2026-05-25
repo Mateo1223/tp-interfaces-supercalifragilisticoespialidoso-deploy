@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router'
 import { ShoppingCart } from '@gravity-ui/icons'
 import Main from '../../components/Main'
 import EmptyState from '../../components/EmptyState'
-import { useEnrichedCart } from '../../hooks/useEnrichedCart'
+import { useCart } from '../../hooks/useCart.ts'
 
 const Cart = () => {
   const navigate = useNavigate()
-  const { isEmpty } = useEnrichedCart()
+  const { isEmpty } = useCart()
 
   if (isEmpty) {
     return (

@@ -43,5 +43,5 @@ export const useCart = () => {
     setCart(updated)
   }
 
-  return { cart, addItem, clearCart }
+  return { cart, addItem, clearCart, isEmpty: !cart || cart.items.length === 0 }
 }

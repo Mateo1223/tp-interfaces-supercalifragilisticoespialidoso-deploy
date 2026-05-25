@@ -2,7 +2,7 @@ import { useCart } from './useCart'
 import { useProductsByIds } from './useProductsByIds'
 
 export const useEnrichedCart = () => {
-  const { cart, clearCart } = useCart()
+  const { cart, clearCart, isEmpty } = useCart()
   const productIds = (cart?.items ?? []).map((item) => item.productId)
   const { data: products, isLoading } = useProductsByIds(productIds)
 
@@ -21,5 +21,5 @@ export const useEnrichedCart = () => {
 
   const subtotal = items.reduce((sum, item) => sum + item.price, 0)
 
-  return { items, subtotal, isEmpty: !cart || cart.items.length === 0, isLoading, cart, clearCart }
+  return { items, subtotal, isEmpty, isLoading, cart, clearCart }
 }
