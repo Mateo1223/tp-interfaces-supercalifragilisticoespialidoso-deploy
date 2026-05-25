@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { usePageTitle } from '../../hooks/usePageTitle'
 import { Button, Input, TextField } from '@heroui/react'
 import { ArrowRotateLeft, Trolley } from '@gravity-ui/icons'
 import Main from '../../components/Main'
 import FeatureCard from '../../components/FeatureCard'
 
 const OrderSearch = () => {
+  usePageTitle('Seguí tu pedido')
   const navigate = useNavigate()
   const [orderNumber, setOrderNumber] = useState('')
 

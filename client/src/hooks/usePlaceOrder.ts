@@ -32,6 +32,21 @@ const updateStock = (items: CartItem[], products: Product[]) =>
     ),
   )
 
+export interface CheckoutFormData {
+  email: string
+  phone: string
+  firstName: string
+  lastName: string
+  address: string
+  city: string
+  province: string
+  postalCode: string
+  cardNumber: string
+  expiry: string
+  cvv: string
+  cardHolder: string
+}
+
 interface OrderItem {
   id: string
   productId: string
@@ -41,7 +56,12 @@ interface OrderItem {
   unitPrice: number
 }
 
-const buildOrder = (cart: Cart, items: OrderItem[], subtotal: number): Omit<Order, 'id'> => {
+const buildOrder = (
+  cart: Cart,
+  items: OrderItem[],
+  subtotal: number,
+  formData: CheckoutFormData,
+): Omit<Order, 'id'> => {
   const now = new Date().toISOString()
   const year = new Date().getFullYear()
   const orderNumber = `HR-${year}-${String(Math.floor(Math.random() * 999999)).padStart(6, '0')}`
@@ -62,17 +82,22 @@ const buildOrder = (cart: Cart, items: OrderItem[], subtotal: number): Omit<Orde
       to: fmt(toDate),
       label: `Llega entre el ${fromDate.toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long' })} y ${toDate.toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long' })}`,
     },
-    customer: { email: 'marcos@example.com', phone: '+54 11 5555 0000' },
+    customer: { email: formData.email, phone: formData.phone },
     shippingAddress: {
-      firstName: 'Marcos',
-      lastName: 'García',
-      address: 'Av. Corrientes 1234, 5° B',
-      city: 'Caseros',
-      province: 'Buenos Aires',
-      postalCode: '1678',
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      address: formData.address,
+      city: formData.city,
+      province: formData.province,
+      postalCode: formData.postalCode,
       country: 'AR',
     },
-    payment: { method: 'credit_card', provider: 'visa', installments: 1, last4: '3456' },
+    payment: {
+      method: 'credit_card',
+      provider: 'visa',
+      installments: 1,
+      last4: formData.cardNumber.replace(/\D/g, '').slice(-4),
+    },
     shipping: {
       carrier: 'Andreani',
       trackingCode: `AR${String(Math.floor(Math.random() * 99999999)).padStart(8, '0')}CL`,
@@ -147,14 +172,14 @@ const buildOrder = (cart: Cart, items: OrderItem[], subtotal: number): Omit<Orde
   }
 }
 
-export const usePlaceOrder = (cvv: string) => {
+export const usePlaceOrder = () => {
   const { items, subtotal, isEmpty, cart, clearCart } = useEnrichedCart()
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const submitted = useRef(false)
 
-  const placeOrder = async () => {
-    if (!validateCvv(cvv)) {
+  const placeOrder = async (formData: CheckoutFormData) => {
+    if (!validateCvv(formData.cvv)) {
       navigate('/checkout/error')
       return
     }
@@ -165,7 +190,7 @@ export const usePlaceOrder = (cvv: string) => {
 
     try {
       const products = await fetchProducts(cart.items)
-      const createdOrder = await postOrder(buildOrder(cart, items, subtotal))
+      const createdOrder = await postOrder(buildOrder(cart, items, subtotal, formData))
       await updateStock(cart.items, products)
 
       submitted.current = true

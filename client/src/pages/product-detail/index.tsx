@@ -7,6 +7,7 @@ import { formatPrice } from '../../utils/format.ts'
 import Main from '../../components/Main'
 import TwoColumnLayout from '../../components/TwoColumnLayout'
 import { useProduct } from '../../hooks/useProduct'
+import { usePageTitle } from '../../hooks/usePageTitle'
 import { useCart } from '../../hooks/useCart'
 import EmptyState from '../../components/EmptyState'
 
@@ -17,6 +18,7 @@ const ProductDetail = () => {
   const navigate = useNavigate()
   const { slug } = useParams<{ slug: string }>()
   const { data: product, isLoading } = useProduct(slug ?? '')
+  usePageTitle(product?.name)
   const { addItem } = useCart()
   const [selectedImage, setSelectedImage] = useState(0)
   const [added, setAdded] = useState(false)

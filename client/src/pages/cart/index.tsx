@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router'
+import { usePageTitle } from '../../hooks/usePageTitle'
 import { ShoppingCart } from '@gravity-ui/icons'
 import Main from '../../components/Main'
 import EmptyState from '../../components/EmptyState'
 import { useCart } from '../../hooks/useCart.ts'
 
 const Cart = () => {
+  usePageTitle('Mi carrito')
   const navigate = useNavigate()
   const { isEmpty } = useCart()
 

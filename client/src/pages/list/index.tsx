@@ -1,7 +1,7 @@
 import Main from '../../components/Main'
 
-const Success = () => {
+const List = () => {
   return <Main>List Page</Main>
 }
 
-export default Success
+export default List

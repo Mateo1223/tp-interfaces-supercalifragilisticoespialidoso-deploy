@@ -1,41 +1,50 @@
-import { Input, Label, TextField } from '@heroui/react'
+import { FieldError, Input, Label, TextField } from '@heroui/react'
 import SectionCard from '../../../components/SectionCard'
 
-interface Props {
-  cvv: string
-  onCvvChange: (value: string) => void
-}
-
-const PaymentForm = ({ cvv, onCvvChange }: Props) => {
-  return (
-    <SectionCard n="3" title="Método de pago">
-      <div className="flex flex-col gap-3.5">
-        <TextField name="cardNumber" fullWidth>
-          <Label>Número de tarjeta</Label>
-          <Input placeholder="1234 5678 9012 3456" />
+const PaymentForm = () => (
+  <SectionCard n="3" title="Método de pago">
+    <div className="flex flex-col gap-3.5">
+      <TextField
+        name="cardNumber"
+        fullWidth
+        isRequired
+        validate={(v) =>
+          v && !/^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$/.test(v.trim()) ? 'Ingresá los 16 dígitos' : null
+        }
+      >
+        <Label>Número de tarjeta</Label>
+        <Input placeholder="1234 5678 9012 3456" />
+        <FieldError />
+      </TextField>
+      <div className="grid grid-cols-2 gap-3.5">
+        <TextField
+          name="expiry"
+          fullWidth
+          isRequired
+          validate={(v) => (v && !/^(0[1-9]|1[0-2])\/\d{2}$/.test(v) ? 'Formato MM/AA' : null)}
+        >
+          <Label>Vencimiento</Label>
+          <Input placeholder="MM / AA" />
+          <FieldError />
         </TextField>
-        <div className="grid grid-cols-2 gap-3.5">
-          <TextField name="expiry" fullWidth>
-            <Label>Vencimiento</Label>
-            <Input placeholder="MM / AA" />
-          </TextField>
-          <TextField name="cvv" fullWidth>
-            <Label>CVV</Label>
-            <Input
-              placeholder="123"
-              value={cvv}
-              onChange={(e) => onCvvChange(e.target.value)}
-              maxLength={3}
-            />
-          </TextField>
-        </div>
-        <TextField name="cardHolder" fullWidth>
-          <Label>Nombre del titular</Label>
-          <Input placeholder="Como figura en la tarjeta" />
+        <TextField
+          name="cvv"
+          fullWidth
+          isRequired
+          validate={(v) => (v && !/^\d{3}$/.test(v) ? 'CVV inválido (3 dígitos)' : null)}
+        >
+          <Label>CVV</Label>
+          <Input placeholder="123" maxLength={3} />
+          <FieldError />
         </TextField>
       </div>
-    </SectionCard>
-  )
-}
+      <TextField name="cardHolder" fullWidth isRequired>
+        <Label>Nombre del titular</Label>
+        <Input placeholder="Como figura en la tarjeta" />
+        <FieldError />
+      </TextField>
+    </div>
+  </SectionCard>
+)
 
 export default PaymentForm

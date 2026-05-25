@@ -10,10 +10,13 @@ import { formatCreatedAt } from '../../utils/format.ts'
 import TwoColumnLayout from '../../components/TwoColumnLayout'
 import Main from '../../components/Main'
 import { useOrder } from '../../hooks/useOrder'
+import { usePageTitle } from '../../hooks/usePageTitle'
 
 const OrderTracking = () => {
   const { orderNumber } = useParams<{ orderNumber: string }>()
   const { order, isLoading, notFound } = useOrder(orderNumber ?? '')
+
+  usePageTitle(order ? `Pedido #${order.orderNumber}` : undefined)
 
   if (isLoading) return <Main>Cargando...</Main>
   if (notFound || !order) return <OrderNotFound orderNumber={orderNumber ?? ''} />
