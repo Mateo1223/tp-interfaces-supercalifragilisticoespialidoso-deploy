@@ -1,5 +1,6 @@
 import { Card } from '@heroui/react'
 import { ArrowRight } from '@gravity-ui/icons'
+import clsx from 'clsx'
 
 interface InfoCardProps {
   icon: React.ReactNode
@@ -9,7 +10,7 @@ interface InfoCardProps {
 }
 
 const InfoCard = ({ icon, title, description, onClick }: InfoCardProps) => (
-  <Card className={`px-5 py-4.5 ${onClick ? 'cursor-pointer' : ''}`} onClick={onClick}>
+  <Card className={clsx('px-5 py-4.5', onClick && 'cursor-pointer')} onClick={onClick}>
     <Card.Content className="flex-row items-center gap-3.5">
       <div className="bg-(--accent)/10 rounded-[20px] size-10 flex items-center justify-center shrink-0">
         {icon}
