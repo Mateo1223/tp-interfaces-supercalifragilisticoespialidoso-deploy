@@ -6,16 +6,20 @@ import ItemsCard from '../../components/ItemsCard'
 import OrderNotFound from './components/OrderNotFound.tsx'
 import ShippingInfoCard from './components/ShippingInfoCard.tsx'
 import TrackingTimeline from './components/TrackingTimeline.tsx'
-import { mockOrder } from '../../mocks/order.ts'
 import { formatCreatedAt } from '../../utils/format.ts'
 import TwoColumnLayout from '../../components/TwoColumnLayout'
 import Main from '../../components/Main'
+import { useOrder } from '../../hooks/useOrder'
+import { usePageTitle } from '../../hooks/usePageTitle'
 
 const OrderTracking = () => {
   const { orderNumber } = useParams<{ orderNumber: string }>()
-  const order = orderNumber === mockOrder.orderNumber ? mockOrder : null
+  const { order, isLoading, notFound } = useOrder(orderNumber ?? '')
 
-  if (!order) return <OrderNotFound orderNumber={orderNumber ?? ''} />
+  usePageTitle(order ? `Pedido #${order.orderNumber}` : undefined)
+
+  if (isLoading) return <Main>Cargando...</Main>
+  if (notFound || !order) return <OrderNotFound orderNumber={orderNumber ?? ''} />
 
   const currentStep = order.tracking.steps.find((s) => s.status === 'current')
 
@@ -59,13 +63,11 @@ const OrderTracking = () => {
 
         <TwoColumnLayout.Sidebar>
           <ShippingInfoCard shippingAddress={order.shippingAddress} customer={order.customer} />
-
           <PaymentSummary
             subtotal={order.summary.subtotal}
             shipping={order.summary.shipping}
             total={order.summary.total}
           />
-
           <HelpCard />
         </TwoColumnLayout.Sidebar>
       </TwoColumnLayout>

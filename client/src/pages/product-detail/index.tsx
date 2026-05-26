@@ -1,19 +1,45 @@
 import { useState } from 'react'
+import { useNavigate, useParams } from 'react-router'
 import { Button } from '@heroui/react'
 import { ArrowRotateLeft, ShoppingCart } from '@gravity-ui/icons'
 import InfoCard from '../../components/InfoCard'
-import { mockProduct } from '../../mocks/product.ts'
-import type { Product } from '../../types/product.ts'
 import { formatPrice } from '../../utils/format.ts'
 import Main from '../../components/Main'
 import TwoColumnLayout from '../../components/TwoColumnLayout'
+import { useProduct } from '../../hooks/useProduct'
+import { usePageTitle } from '../../hooks/usePageTitle'
+import { useCart } from '../../hooks/useCart'
+import EmptyState from '../../components/EmptyState'
+import { ROUTES } from '../../config/routes'
 
 const formatSales = (count: number) =>
   count >= 1000 ? `+${Math.floor(count / 1000)}k` : `+${count}`
 
 const ProductDetail = () => {
-  const product: Product = mockProduct
+  const navigate = useNavigate()
+  const { slug } = useParams<{ slug: string }>()
+  const { data: product, isLoading } = useProduct(slug ?? '')
+  usePageTitle(product?.name)
+  const { addItem } = useCart()
   const [selectedImage, setSelectedImage] = useState(0)
+  const [added, setAdded] = useState(false)
+
+  if (isLoading) return <Main>Cargando...</Main>
+  if (!product)
+    return (
+      <EmptyState
+        icon={<ShoppingCart width={24} height={24} className="text-(--accent)" />}
+        title="Producto no encontrado"
+        description="El producto que buscás no existe o fue removido."
+        action={{ label: 'Ver productos', onClick: () => navigate(ROUTES.LIST) }}
+      />
+    )
+
+  const handleAddToCart = () => {
+    addItem(product.id)
+    setAdded(true)
+    setTimeout(() => setAdded(false), 2000)
+  }
 
   return (
     <Main>
@@ -70,20 +96,22 @@ const ProductDetail = () => {
 
             <p className="text-xl lg:text-2xl font-bold">{formatPrice(product.price)}</p>
 
-            <div className="flex flex-col gap-4">
-              <Button variant="primary" fullWidth className="rounded-full">
-                <ShoppingCart width={16} height={16} />
-                Agregar al carrito
-              </Button>
-              <Button variant="outline" fullWidth className="rounded-full">
-                Comprar ahora
-              </Button>
-            </div>
+            <Button
+              variant={added ? 'outline' : 'primary'}
+              fullWidth
+              className="rounded-full"
+              onPress={handleAddToCart}
+              isDisabled={added}
+            >
+              <ShoppingCart width={16} height={16} />
+              {added ? 'Agregado al carrito' : 'Agregar al carrito'}
+            </Button>
 
             <InfoCard
               icon={<ArrowRotateLeft width={18} height={18} className="text-(--accent)" />}
               title="Cambios gratis 30 días"
               description="Cambios y devoluciones a domicilio sin costo"
+              onClick={() => navigate(ROUTES.CONTACT)}
             />
           </div>
         </TwoColumnLayout.Sidebar>

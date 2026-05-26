@@ -1,33 +1,20 @@
 {
   "id": "cart-1",
-  "total": 459000,
   "items": [
     {
       "id": "cart-item-1",
       "productId": "wild-west-vest-black-denim",
-      "name": "Wild West Vest Black Denim",
-      "category": "camperas",
-      "price": 329000,
-      "quantity": 1,
-      "image": "wwv-black-1.jpg"
+      "quantity": 1
     },
     {
       "id": "cart-item-2",
       "productId": "urban-wave-tee-off-white",
-      "name": "Urban Wave Tee Off-White",
-      "category": "remeras",
-      "price": 42500,
-      "quantity": 2,
-      "image": "uwt-off-white-1.jpg"
+      "quantity": 2
     },
     {
       "id": "cart-item-3",
       "productId": "cargo-pant-olive-drab",
-      "name": "Cargo Pant Olive Drab",
-      "category": "pantalones",
-      "price": 89900,
-      "quantity": 1,
-      "image": "cpo-drab-1.jpg"
+      "quantity": 1
     }
   ]
 }

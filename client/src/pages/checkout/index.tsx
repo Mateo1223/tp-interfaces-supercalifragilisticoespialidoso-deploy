@@ -1,13 +1,16 @@
+import { Navigate } from 'react-router'
+import { Form } from '@heroui/react'
 import ContactForm from './components/ContactForm.tsx'
-import EmptyCart from './components/EmptyCart.tsx'
 import ItemsCard from '../../components/ItemsCard'
 import PaymentSummary from '../../components/PaymentSummary'
 import PaymentForm from './components/PaymentForm'
 import ShippingForm from './components/ShippingForm.tsx'
 import Stepper, { type Step } from '../../components/Stepper'
-import { mockCart } from '../../mocks/cart.ts'
 import Main from '../../components/Main'
 import TwoColumnLayout from '../../components/TwoColumnLayout'
+import { type CheckoutFormData, usePlaceOrder } from '../../hooks/usePlaceOrder'
+import { usePageTitle } from '../../hooks/usePageTitle'
+import { ROUTES } from '../../config/routes'
 
 const STEPS: Step[] = [
   { label: 'Carrito', status: 'completed' },
@@ -16,11 +19,30 @@ const STEPS: Step[] = [
 ]
 
 const Checkout = () => {
-  const cart = mockCart
-  const subtotal = cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  usePageTitle('Finalizar compra')
+  const { placeOrder, isLoading, items, subtotal, isEmpty, submitted } = usePlaceOrder()
 
-  // TODO: esto no es correcto
-  if (cart.items.length === 0) return <EmptyCart />
+  if (isEmpty && !submitted.current) return <Navigate to={ROUTES.LIST} replace />
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const fd = new FormData(e.currentTarget)
+    const get = (k: string) => (fd.get(k) as string) ?? ''
+    placeOrder({
+      email: get('email'),
+      phone: get('phone'),
+      firstName: get('firstName'),
+      lastName: get('lastName'),
+      address: get('address'),
+      city: get('city'),
+      province: get('province'),
+      postalCode: get('postalCode'),
+      cardNumber: get('cardNumber'),
+      expiry: get('expiry'),
+      cvv: get('cvv'),
+      cardHolder: get('cardHolder'),
+    } satisfies CheckoutFormData)
+  }
 
   return (
     <Main>
@@ -31,27 +53,26 @@ const Checkout = () => {
         </div>
       </div>
 
-      <TwoColumnLayout>
-        <TwoColumnLayout.Main>
-          <ContactForm />
-          <ShippingForm />
-          <PaymentForm />
-        </TwoColumnLayout.Main>
+      <Form onSubmit={handleSubmit} validationBehavior="aria">
+        <TwoColumnLayout>
+          <TwoColumnLayout.Main>
+            <ContactForm />
+            <ShippingForm />
+            <PaymentForm />
+          </TwoColumnLayout.Main>
 
-        <TwoColumnLayout.Sidebar>
-          <ItemsCard
-            title="Tu pedido"
-            items={cart.items.map((item) => ({
-              id: item.id,
-              name: item.name,
-              image: item.image,
-              quantity: item.quantity,
-              price: item.price * item.quantity,
-            }))}
-          />
-          <PaymentSummary subtotal={subtotal} shipping={0} total={subtotal} showAction />
-        </TwoColumnLayout.Sidebar>
-      </TwoColumnLayout>
+          <TwoColumnLayout.Sidebar>
+            <ItemsCard title="Tu pedido" items={items} />
+            <PaymentSummary
+              subtotal={subtotal}
+              shipping={0}
+              total={subtotal}
+              showAction
+              isLoading={isLoading}
+            />
+          </TwoColumnLayout.Sidebar>
+        </TwoColumnLayout>
+      </Form>
     </Main>
   )
 }

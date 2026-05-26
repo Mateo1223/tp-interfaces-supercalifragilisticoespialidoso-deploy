@@ -24,6 +24,9 @@ export interface Order {
   orderNumber: string
   cartId: string
   status: string
+  paymentStatus: string
+  fulfillmentStatus: string
+  currency: string
   createdAt: string
   estimatedDelivery: { from: string; to: string; label: string }
   customer: { email: string; phone: string }

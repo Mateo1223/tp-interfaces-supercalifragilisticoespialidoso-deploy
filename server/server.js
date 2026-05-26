@@ -17,10 +17,15 @@ const cart = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'data', 'cart.json'))
 );
 
+const orders = JSON.parse(
+    fs.readFileSync(path.join(__dirname, 'data', 'orders.json'))
+);
+
 const router = jsonServer.router({
   users,
   products,
   cart,
+  orders,
 });
 
 server.use(middlewares);
