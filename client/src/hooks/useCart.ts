@@ -43,5 +43,36 @@ export const useCart = () => {
     setCart(updated)
   }
 
-  return { cart, addItem, clearCart, isEmpty: !cart || cart.items.length === 0 }
+  const decrementItem = (productId: string) => {
+    if (!cart) return
+    const updated: Cart = {
+      ...cart,
+      items: cart.items.map((i) =>
+        i.productId === productId ? { ...i, quantity: Math.max(1, i.quantity - 1) } : i,
+      ),
+    }
+    saveCart(updated)
+    setCart(updated)
+  }
+
+  const removeItem = (productId: string) => {
+    if (!cart) return
+    const filtered = cart.items.filter((i) => i.productId !== productId)
+    if (filtered.length === 0) {
+      clearCart()
+      return
+    }
+    const updated: Cart = { ...cart, items: filtered }
+    saveCart(updated)
+    setCart(updated)
+  }
+
+  return {
+    cart,
+    addItem,
+    decrementItem,
+    removeItem,
+    clearCart,
+    isEmpty: !cart || cart.items.length === 0,
+  }
 }

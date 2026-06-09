@@ -2,7 +2,7 @@ import { useCart } from './useCart'
 import { useProductsByIds } from './useProductsByIds'
 
 export const useEnrichedCart = () => {
-  const { cart, clearCart, isEmpty } = useCart()
+  const { cart, clearCart, isEmpty, addItem, decrementItem, removeItem } = useCart()
   const productIds = (cart?.items ?? []).map((item) => item.productId)
   const { data: products, isLoading } = useProductsByIds(productIds)
 
@@ -12,14 +12,28 @@ export const useEnrichedCart = () => {
       id: item.id,
       productId: item.productId,
       name: product?.name ?? '',
+      category: product?.category ?? '',
       image: product?.images[0] ?? '',
       quantity: item.quantity,
+      stock: product?.totalStock ?? Infinity,
       unitPrice: product?.price ?? 0,
       price: (product?.price ?? 0) * item.quantity,
     }
   })
 
   const subtotal = items.reduce((sum, item) => sum + item.price, 0)
+  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0)
 
-  return { items, subtotal, isEmpty, isLoading, cart, clearCart }
+  return {
+    items,
+    subtotal,
+    totalItems,
+    isEmpty,
+    isLoading,
+    cart,
+    clearCart,
+    addItem,
+    decrementItem,
+    removeItem,
+  }
 }

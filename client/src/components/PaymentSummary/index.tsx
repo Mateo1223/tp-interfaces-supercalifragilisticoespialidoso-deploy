@@ -8,13 +8,27 @@ interface Props {
   total: number
   showAction?: boolean
   isLoading?: boolean
+  title?: string
+  actionLabel?: string
+  subtotalLabel?: string
+  onAction?: () => void
 }
 
-const PaymentSummary = ({ subtotal, shipping, total, showAction, isLoading }: Props) => (
-  <SectionCard title="Resumen del pago">
+const PaymentSummary = ({
+  subtotal,
+  shipping,
+  total,
+  showAction,
+  isLoading,
+  title = 'Resumen del pago',
+  actionLabel = 'Pagar ahora',
+  subtotalLabel = 'Subtotal',
+  onAction,
+}: Props) => (
+  <SectionCard title={title}>
     <div className="flex flex-col gap-3">
       <div className="flex justify-between text-sm">
-        <span>Subtotal</span>
+        <span>{subtotalLabel}</span>
         <span className="font-medium">{formatPrice(subtotal)}</span>
       </div>
       <div className="flex justify-between text-sm">
@@ -25,19 +39,20 @@ const PaymentSummary = ({ subtotal, shipping, total, showAction, isLoading }: Pr
       </div>
       <Separator />
       <div className="flex items-baseline justify-between">
-        <span className="font-bold text-2xl">Total</span>
-        <span className="font-bold text-2xl">{formatPrice(total)}</span>
+        <span className="text-2xl font-bold">Total</span>
+        <span className="text-2xl font-bold">{formatPrice(total)}</span>
       </div>
       {showAction && (
         <Button
-          type="submit"
+          type={onAction ? 'button' : 'submit'}
           variant="primary"
           fullWidth
-          className="rounded-full mt-2"
+          className="mt-2 rounded-full"
           size="lg"
           isPending={isLoading}
+          onPress={onAction}
         >
-          Pagar ahora
+          {actionLabel}
         </Button>
       )}
     </div>
