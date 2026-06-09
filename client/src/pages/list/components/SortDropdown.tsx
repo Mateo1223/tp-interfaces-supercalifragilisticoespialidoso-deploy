@@ -27,6 +27,9 @@ const SortDropdown = () => {
       params.set('sort', key)
     }
 
+    // reset pagination
+    params.set('page', '1')
+
     setSearchParams(params)
   }
 

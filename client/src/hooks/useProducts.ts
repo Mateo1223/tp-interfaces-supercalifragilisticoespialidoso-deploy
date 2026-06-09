@@ -1,23 +1,25 @@
 import useSWR from 'swr'
+import { useSearchParams } from 'react-router'
 import { API } from '../config/api'
 import { fetcher } from '../lib/fetcher'
 import type { Product } from '../types/product'
-import { useSearchParams } from 'react-router'
 
-export const PRODUCTS_PER_PAGE = 3
+export const PRODUCTS_PER_PAGE = 10
 
 type ProductsResponse = {
   data: Product[]
   totalItems: number
 }
 
-export const useProducts = () => {
+type UseProductsOptions = {
+  limit?: number
+}
+
+export const useProducts = ({ limit }: UseProductsOptions = {}) => {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const category = searchParams.get('category')
-
   const search = searchParams.get('search')
-
   const sort = searchParams.get('sort')
 
   const page = Number(searchParams.get('page') ?? '1')
@@ -44,7 +46,7 @@ export const useProducts = () => {
 
   params.set('_page', String(page))
 
-  params.set('_limit', String(PRODUCTS_PER_PAGE))
+  params.set('_limit', String(limit ?? PRODUCTS_PER_PAGE))
 
   const endpoint = `${API.PRODUCTS}?${params}`
 
@@ -59,11 +61,12 @@ export const useProducts = () => {
   }
 
   const totalItems = data?.totalItems ?? 0
+  const pageSize = limit ?? PRODUCTS_PER_PAGE
 
   return {
     products: data?.data ?? [],
     totalItems,
-    totalPages: Math.ceil(totalItems / PRODUCTS_PER_PAGE),
+    totalPages: Math.ceil(totalItems / pageSize),
     page,
     setPage,
     isLoading,
