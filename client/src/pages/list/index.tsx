@@ -51,7 +51,7 @@ const List = () => {
             </>
           }
           description="Disponible en primavera 2027. Diseño colaborativo, edición limitada."
-          image="https://images.unsplash.com/photo-1561390713-b08f7fe46f58?w=1400&q=80"
+          image="https://images.unsplash.com/photo-1561390713-b08f7fe46f58?w=2000&q=100"
           action={{ label: 'Avisame cuando llegue', onClick: () => {} }}
         />
         <div className="flex flex-col gap-y-6">

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router'
 import { Button } from '@heroui/react'
 import { ArrowRotateLeft, ShoppingCart } from '@gravity-ui/icons'
 import InfoCard from '../../components/InfoCard'
+import CollectionBanner from '../../components/CollectionBanner'
 import { formatPrice } from '../../utils/format.ts'
 import Main from '../../components/Main'
 import TwoColumnLayout from '../../components/TwoColumnLayout'
@@ -42,7 +43,17 @@ const ProductDetail = () => {
   }
 
   return (
-    <Main>
+    <Main contentClassName="flex flex-col gap-y-12">
+      <CollectionBanner
+        eyebrow="Cápsula Denim 2.0 — Edición limitada"
+        title="Para los que vuelven cuando amanece"
+        description="Diez piezas. Una sola noche para conseguirlas."
+        image="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=2000&q=100"
+        action={{
+          label: 'Conseguí la tuya',
+          onClick: () => navigate(`${ROUTES.LIST}?badge=capsula`),
+        }}
+      />
       <TwoColumnLayout gap="xl">
         <TwoColumnLayout.Main>
           <div className="flex flex-col gap-3 lg:gap-7.5">
