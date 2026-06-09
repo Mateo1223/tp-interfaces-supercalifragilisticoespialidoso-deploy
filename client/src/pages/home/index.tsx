@@ -9,6 +9,7 @@ import CapsuleBanner from './components/CapsuleBanner.tsx'
 import Main from '../../components/Main'
 import { usePageTitle } from '../../hooks/usePageTitle.ts'
 import { ROUTES } from '../../config/routes'
+import HomeHero from './components/HomeHero'
 
 const Home = () => {
   usePageTitle('Inicio')
@@ -16,6 +17,56 @@ const Home = () => {
   const { products } = useProducts({ limit: 4 })
   return (
     <Main>
+      <HomeHero>
+        <HomeHero.Content>
+          <HomeHero.Badge>Nueva colección · Otoño 2026</HomeHero.Badge>
+
+          <HomeHero.Title>
+            Estilo urbano,
+            <br />
+            para cada día.
+          </HomeHero.Title>
+
+          <HomeHero.Description>
+            Prendas pensadas para moverte. Denim, algodón y técnicos. Envío gratis en compras desde
+            $50.000.
+          </HomeHero.Description>
+
+          <HomeHero.Actions>
+            <Button size="md">Explorar colección</Button>
+
+            <Button variant="outline" size="lg">
+              Lo más vendido
+            </Button>
+          </HomeHero.Actions>
+
+          <HomeHero.Features>
+            <HomeHero.Feature>Envío gratis +$50.000</HomeHero.Feature>
+
+            <HomeHero.Feature>6 cuotas sin interés</HomeHero.Feature>
+
+            <HomeHero.Feature>30 días para cambios</HomeHero.Feature>
+          </HomeHero.Features>
+        </HomeHero.Content>
+
+        <HomeHero.Visual>
+          <HomeHero.Rating>4.9 · +12k reseñas</HomeHero.Rating>
+
+          <HomeHero.ProductCard>
+            <div className="flex items-end gap-6">
+              <div>
+                <h3 className="font-semibold text-foreground">Wild West Vest</h3>
+
+                <p className="text-sm text-muted">Black Denim · Talle S</p>
+              </div>
+
+              <span className="font-semibold text-foreground">$329.000</span>
+            </div>
+          </HomeHero.ProductCard>
+
+          <HomeHero.BackgroundText>hero</HomeHero.BackgroundText>
+        </HomeHero.Visual>
+      </HomeHero>
       <ShowcaseSection>
         <ShowcaseSection.Header>
           <ShowcaseSection.Title eyebrow="CATEGORÍAS" title="Comprá por categoría" />
