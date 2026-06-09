@@ -2,7 +2,6 @@ import { createBrowserRouter } from 'react-router'
 import AppLayout from './layouts/AppLayout'
 import Cart from './pages/cart'
 import Checkout from './pages/checkout'
-import Demo from './pages/demo'
 import Error from './pages/error'
 import Home from './pages/home'
 import List from './pages/list'
@@ -18,7 +17,6 @@ export const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'demo', element: <Demo /> },
       { path: 'home', element: <Home /> },
       { path: 'contact', element: <Contact /> },
       { path: 'list', element: <List /> },
