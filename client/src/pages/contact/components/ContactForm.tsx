@@ -5,7 +5,12 @@ const ContactForm = () => (
   <SectionCard title="Escribinos un mensaje">
     <div className="flex gap-6 flex-col">
       <p className="">Te respondemos en menos de 24hs hábiles</p>
-      <TextField name="firstName" fullWidth isRequired>
+      <TextField
+        name="firstName"
+        fullWidth
+        isRequired
+        validate={(v) => (!v ? 'Completá este campo' : null)}
+      >
         <Label>Nombre</Label>
         <Input placeholder="Nombre" />
         <FieldError />
@@ -15,25 +20,27 @@ const ContactForm = () => (
         type="email"
         fullWidth
         isRequired
-        validate={(v) =>
-          v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? 'Ingresá un email válido' : null
-        }
+        validate={(v) => {
+          if (!v) return 'Completá este campo'
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return 'Ingresá un email válido'
+          return null
+        }}
       >
         <Label>Email</Label>
         <Input placeholder="tu@email.com" />
         <FieldError />
       </TextField>
 
-      <div className="flex flex-col gap-1 w-full">
-        <Label htmlFor="textarea-rows-3" isRequired>
-          Mensaje
-        </Label>
-        <TextArea
-          className="h-32"
-          placeholder="Contanos en que te podemos ayudar..."
-          fullWidth
-        ></TextArea>
-      </div>
+      <TextField
+        name="message"
+        isRequired
+        fullWidth
+        validate={(v) => (!v ? 'Completá este campo' : null)}
+      >
+        <Label>Mensaje</Label>
+        <TextArea className="h-32" placeholder="Contanos en que te podemos ayudar..." />
+        <FieldError />
+      </TextField>
       <Button variant="primary" fullWidth className="rounded-full" type="submit">
         Enviar Mensaje
       </Button>

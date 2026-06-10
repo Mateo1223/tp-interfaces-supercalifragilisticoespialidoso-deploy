@@ -8,8 +8,8 @@ interface Props {
 
 const Root = ({ children }: Props) => {
   return (
-    <Surface variant="transparent" className="overflow-hidden rounded-[2rem]">
-      <div className="grid gap-10 pb-10 lg:grid-cols-2">{children}</div>
+    <Surface variant="transparent" className="overflow-hidden rounded-2xl lg:rounded-[2rem]">
+      <div className="grid gap-6 pb-6 lg:gap-10 lg:pb-10 lg:grid-cols-2">{children}</div>
     </Surface>
   )
 }
@@ -28,23 +28,23 @@ const Badge = ({ children }: Props) => {
 
 const Title = ({ children }: Props) => {
   return (
-    <h1 className="max-w-xl text-5xl font-bold leading-[0.95] tracking-tight text-foreground md:text-6xl lg:text-7xl">
+    <h1 className="max-w-xl text-4xl font-bold leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-7xl">
       {children}
     </h1>
   )
 }
 
 const Description = ({ children }: Props) => {
-  return <p className="mt-6 max-w-lg text-base leading-relaxed text-muted">{children}</p>
+  return <p className="mt-4 max-w-lg text-base leading-relaxed text-muted lg:mt-6">{children}</p>
 }
 
 const Actions = ({ children }: Props) => {
-  return <div className="mt-8 flex flex-wrap items-center gap-3">{children}</div>
+  return <div className="mt-5 flex flex-wrap items-center gap-3 lg:mt-8">{children}</div>
 }
 
 const Features = ({ children }: Props) => {
   return (
-    <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted">
+    <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted lg:mt-10 lg:gap-x-8">
       {children}
     </div>
   )
@@ -61,10 +61,10 @@ const Feature = ({ children }: Props) => {
 
 const Visual = ({ children }: Props) => {
   return (
-    <div className="relative flex items-center justify-end">
+    <div className="relative flex items-center justify-center lg:justify-end">
       <Surface
         variant="transparent"
-        className="relative flex h-[520px] w-full max-w-[520px] items-center justify-end overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#2E2E33] to-[#0A0A0D]"
+        className="relative flex h-[280px] w-full sm:h-[380px] lg:h-[520px] lg:max-w-[520px] items-center justify-end overflow-hidden rounded-2xl lg:rounded-[2rem] bg-gradient-to-br from-[#2E2E33] to-[#0A0A0D]"
       >
         {children}
       </Surface>
@@ -94,7 +94,7 @@ const ProductCard = ({ children }: Props) => {
 
 const BackgroundText = ({ children }: Props) => {
   return (
-    <span className=" pointer-events-none absolute bottom-[-2rem] left-1/2 z-0 -translate-x-1/2 select-none text-[9rem] font-black leading-none tracking-[-0.08em] text-white md:text-[12rem] lg:text-[14rem] pb-6">
+    <span className="pointer-events-none absolute bottom-[-1rem] left-1/2 z-0 -translate-x-1/2 select-none text-[6rem] font-black leading-none tracking-[-0.08em] text-white sm:text-[9rem] lg:text-[14rem] pb-4 lg:pb-6">
       {children}
     </span>
   )

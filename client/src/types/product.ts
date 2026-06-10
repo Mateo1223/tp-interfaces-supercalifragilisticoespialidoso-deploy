@@ -6,6 +6,7 @@ export interface Product {
   price: number
   badge: string | null
   description: string
+  features: string[]
   images: string[]
   totalStock: number
   rating: {

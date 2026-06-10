@@ -1,10 +1,16 @@
+import useSWR from 'swr'
 import { useCart } from './useCart'
-import { useProductsByIds } from './useProductsByIds'
+import { fetcher } from '../lib/fetcher'
+import { API } from '../config/api'
+import type { Product } from '../types/product'
 
 export const useEnrichedCart = () => {
   const { cart, clearCart, isEmpty, addItem, decrementItem, removeItem } = useCart()
   const productIds = (cart?.items ?? []).map((item) => item.productId)
-  const { data: products, isLoading } = useProductsByIds(productIds)
+  const { data: products, isLoading } = useSWR<Product[]>(
+    productIds.length > 0 ? `products:${productIds.join(',')}` : null,
+    () => Promise.all(productIds.map((id) => fetcher<Product>(API.PRODUCT(id)))),
+  )
 
   const items = (cart?.items ?? []).map((item) => {
     const product = products?.find((p) => p.id === item.productId)

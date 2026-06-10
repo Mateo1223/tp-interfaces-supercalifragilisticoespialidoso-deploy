@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 
 interface ShowcaseSectionProps {
   children: ReactNode
+  id?: string
 }
 
 interface ShowcaseSectionTitleProps {
@@ -9,12 +10,16 @@ interface ShowcaseSectionTitleProps {
   title: string
 }
 
-const Root = ({ children }: ShowcaseSectionProps) => {
-  return <section className="flex-col flex py-14 gap-8">{children}</section>
+const Root = ({ children, id }: ShowcaseSectionProps) => {
+  return (
+    <section id={id} className="flex-col flex py-14 gap-8">
+      {children}
+    </section>
+  )
 }
 
 const Header = ({ children }: ShowcaseSectionProps) => {
-  return <div className="flex items-center justify-between gap-3">{children}</div>
+  return <div className="flex items-start justify-between gap-3">{children}</div>
 }
 
 const Title = ({ eyebrow, title }: ShowcaseSectionTitleProps) => {
@@ -22,13 +27,13 @@ const Title = ({ eyebrow, title }: ShowcaseSectionTitleProps) => {
     <div>
       <p className="text-accent font-bold text-xs tracking-wide">{eyebrow}</p>
 
-      <h2 className="font-bold text-3xl text-foreground">{title}</h2>
+      <h2 className="font-bold text-2xl sm:text-3xl text-foreground">{title}</h2>
     </div>
   )
 }
 
 const Action = ({ children }: ShowcaseSectionProps) => {
-  return <div>{children}</div>
+  return <div className="shrink-0 whitespace-nowrap">{children}</div>
 }
 
 const Content = ({ children }: ShowcaseSectionProps) => {

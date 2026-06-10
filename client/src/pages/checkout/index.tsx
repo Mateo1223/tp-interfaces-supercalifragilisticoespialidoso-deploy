@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router'
 import { Form } from '@heroui/react'
 import ContactForm from './components/ContactForm.tsx'
@@ -18,9 +19,52 @@ const STEPS: Step[] = [
   { label: 'Confirmación', status: 'pending' },
 ]
 
+const AUTOFILL: CheckoutFormData = {
+  email: 'juan.perez@ejemplo.com',
+  phone: '+54 11 1234 5678',
+  firstName: 'Juan',
+  lastName: 'Pérez',
+  address: 'Av. Corrientes 1234',
+  city: 'Buenos Aires',
+  province: 'Buenos Aires',
+  postalCode: '1043',
+  shippingMethod: 'home_delivery',
+  cardNumber: '4242 4242 4242 4242',
+  expiry: '12/26',
+  cvv: '123',
+  cardHolder: 'JUAN PEREZ',
+}
+
 const Checkout = () => {
   usePageTitle('Finalizar compra')
   const { placeOrder, isLoading, items, subtotal, isEmpty, submitted } = usePlaceOrder()
+  const [fillKey, setFillKey] = useState(0)
+  const [defaultValues, setDefaultValues] = useState<CheckoutFormData | null>(null)
+
+  useEffect(() => {
+    let count = 0
+    let timer: ReturnType<typeof setTimeout>
+
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.key !== 'Shift') return
+      count++
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        count = 0
+      }, 1000)
+      if (count >= 5) {
+        count = 0
+        setDefaultValues(AUTOFILL)
+        setFillKey((k) => k + 1)
+      }
+    }
+
+    window.addEventListener('keyup', handleKeyUp)
+    return () => {
+      window.removeEventListener('keyup', handleKeyUp)
+      clearTimeout(timer)
+    }
+  }, [])
 
   if (isEmpty && !submitted.current) return <Navigate to={ROUTES.LIST} replace />
 
@@ -31,12 +75,14 @@ const Checkout = () => {
     placeOrder({
       email: get('email'),
       phone: get('phone'),
+      notes: get('notes') || undefined,
       firstName: get('firstName'),
       lastName: get('lastName'),
       address: get('address'),
       city: get('city'),
       province: get('province'),
       postalCode: get('postalCode'),
+      shippingMethod: get('shippingMethod'),
       cardNumber: get('cardNumber'),
       expiry: get('expiry'),
       cvv: get('cvv'),
@@ -53,12 +99,12 @@ const Checkout = () => {
         </div>
       </div>
 
-      <Form onSubmit={handleSubmit} validationBehavior="aria">
+      <Form onSubmit={handleSubmit} validationBehavior="native">
         <TwoColumnLayout>
           <TwoColumnLayout.Main>
-            <ContactForm />
-            <ShippingForm />
-            <PaymentForm />
+            <ContactForm key={`contact-${fillKey}`} defaultValues={defaultValues} />
+            <ShippingForm key={`shipping-${fillKey}`} defaultValues={defaultValues} />
+            <PaymentForm key={`payment-${fillKey}`} defaultValues={defaultValues} />
           </TwoColumnLayout.Main>
 
           <TwoColumnLayout.Sidebar>

@@ -33,9 +33,17 @@ const Home = () => {
           </HomeHero.Description>
 
           <HomeHero.Actions>
-            <Button size="md">Explorar colección</Button>
+            <Button size="md" onPress={() => navigate(ROUTES.LIST)}>
+              Explorar colección
+            </Button>
 
-            <Button variant="outline" size="lg">
+            <Button
+              variant="outline"
+              size="md"
+              onPress={() =>
+                document.getElementById('mas-vendido')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
               Lo más vendido
             </Button>
           </HomeHero.Actions>
@@ -52,17 +60,26 @@ const Home = () => {
         <HomeHero.Visual>
           <HomeHero.Rating>4.9 · +12k reseñas</HomeHero.Rating>
 
-          <HomeHero.ProductCard>
-            <div className="flex items-end gap-6">
-              <div>
-                <h3 className="font-semibold text-foreground">Wild West Vest</h3>
+          <img
+            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80"
+            alt="Wild West Vest"
+            className="absolute inset-0 h-full w-full object-cover object-center z-[1] opacity-80"
+          />
+          <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#0A0A0D] via-[#0A0A0D]/40 to-transparent" />
 
-                <p className="text-sm text-muted">Black Denim · Talle S</p>
+          <a href={ROUTES.PRODUCT('wild-west-vest-black-denim')}>
+            <HomeHero.ProductCard>
+              <div className="flex items-end gap-6">
+                <div>
+                  <h3 className="font-semibold text-foreground">Wild West Vest</h3>
+
+                  <p className="text-sm text-muted">Black Denim · Talle S</p>
+                </div>
+
+                <span className="font-semibold text-foreground">$329.000</span>
               </div>
-
-              <span className="font-semibold text-foreground">$329.000</span>
-            </div>
-          </HomeHero.ProductCard>
+            </HomeHero.ProductCard>
+          </a>
 
           <HomeHero.BackgroundText>hero</HomeHero.BackgroundText>
         </HomeHero.Visual>
@@ -91,7 +108,7 @@ const Home = () => {
         </ShowcaseSection.Content>
       </ShowcaseSection>
 
-      <ShowcaseSection>
+      <ShowcaseSection id="mas-vendido">
         <ShowcaseSection.Header>
           <ShowcaseSection.Title eyebrow="MÁS POPULARES" title="Lo más vendido esta semana" />
 

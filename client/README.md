@@ -1,6 +1,37 @@
-# Client
+# Hero — Cliente (Frontend)
 
-React 19 + TypeScript + Vite + HeroUI + Tailwind CSS v4
+Aplicación React que constituye el frontend de la tienda Hero. Permite explorar el catálogo, agregar productos al
+carrito y completar una compra simulada.
+
+## Instalación y ejecución
+
+> Requiere el servidor corriendo en `http://localhost:3008`. Ver [`../server/README.md`](../server/README.md).
+
+```bash
+npm install
+npm run dev    # http://localhost:5173
+```
+
+Variable de entorno (crear `client/.env`):
+
+```env
+VITE_API_URL=http://localhost:3008
+```
+
+## Páginas
+
+| Ruta                | Vista                           |
+| ------------------- | ------------------------------- |
+| `/`                 | Inicio                          |
+| `/list`             | Catálogo con filtros y búsqueda |
+| `/product/:slug`    | Detalle de producto             |
+| `/cart`             | Carrito de compras              |
+| `/checkout`         | Formulario de compra            |
+| `/checkout/success` | Confirmación de pedido          |
+| `/contact`          | Formulario de contacto          |
+| `/tracking`         | Seguimiento de pedido           |
+
+---
 
 ## Stack
 
