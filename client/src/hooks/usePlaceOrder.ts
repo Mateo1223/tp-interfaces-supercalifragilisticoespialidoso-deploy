@@ -37,12 +37,14 @@ const updateStock = (items: CartItem[], products: Product[]) =>
 export interface CheckoutFormData {
   email: string
   phone: string
+  notes?: string
   firstName: string
   lastName: string
   address: string
   city: string
   province: string
   postalCode: string
+  shippingMethod: string
   cardNumber: string
   expiry: string
   cvv: string

@@ -40,6 +40,16 @@ const Footer = () => {
             </a>
           ))}
         </div>
+
+        <div className="flex flex-col gap-3">
+          <p className="font-semibold text-sm">Ayuda</p>
+          <a
+            href={ROUTES.CONTACT}
+            className="text-sm opacity-60 hover:opacity-100 transition-opacity"
+          >
+            Contacto
+          </a>
+        </div>
       </div>
 
       <div className="container px-6 md:px-10 py-5 border-t border-current/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

@@ -7,7 +7,7 @@ import PaymentSummary from '../../components/PaymentSummary'
 import { useEnrichedCart } from '../../hooks/useEnrichedCart'
 import { usePageTitle } from '../../hooks/usePageTitle'
 import { ROUTES } from '../../config/routes'
-import CartItemCard from './components/CartItemCard'
+import CartItemCard from '../../components/CartItemCard'
 
 const SKELETON_ITEMS = [{ id: '1' }, { id: '2' }, { id: '3' }]
 

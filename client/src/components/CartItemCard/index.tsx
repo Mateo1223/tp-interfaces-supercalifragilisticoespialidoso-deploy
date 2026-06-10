@@ -1,8 +1,8 @@
 import { Button, Card, Skeleton } from '@heroui/react'
 import { Minus, Plus } from '@gravity-ui/icons'
-import { formatPrice } from '../../../utils/format'
+import { formatPrice } from '../../utils/format'
 
-interface CartItem {
+export interface CartItem {
   id: string
   productId: string
   name: string

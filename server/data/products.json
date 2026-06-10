@@ -7,6 +7,12 @@
     "price": 329000,
     "badge": "capsula",
     "description": "Chaleco acolchado confeccionado en denim negro con acabado desgastado, ideal para sumar textura y personalidad a cualquier look urbano. Su diseño combina un calce cómodo con un interior abrigado, perfecto para los días frescos. Cuenta con cierre frontal y botones metálicos, además de bolsillos laterales funcionales. Una prenda versátil que se adapta tanto a outfits casuales como a combinaciones más modernas y relajadas.",
+    "features": [
+      "Material: denim 100% algodón",
+      "Interior acolchado para mayor abrigo",
+      "Cierre frontal con botones metálicos",
+      "Bolsillos laterales funcionales"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=3000&q=100",
       "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=3000&q=100",
@@ -28,6 +34,12 @@
     "price": 42500,
     "badge": "nuevo",
     "description": "Remera de algodón con lavado off-white y gráfica minimalista. Corte oversized pensado para looks urbanos relajados, con tela suave al tacto y excelente caída. Ideal para el día a día, tanto sola como en capas.",
+    "features": [
+      "Material: algodón 100% combed",
+      "Corte oversized",
+      "Print gráfico en serigrafía",
+      "Lavado a máquina en frío"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=3000&q=100",
       "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=3000&q=100",
@@ -48,6 +60,12 @@
     "price": 89900,
     "badge": null,
     "description": "Pantalón cargo en color verde oliva militar con bolsillos laterales de solapa y cintura elastizada. Tela resistente de algodón ripstop, pensado para uso casual y outdoor. Amplio y cómodo sin perder el estilo.",
+    "features": [
+      "Material: algodón ripstop resistente",
+      "6 bolsillos funcionales",
+      "Cintura elastizada con cordón",
+      "Corte amplio y cómodo"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1542272604-787c3835535d?w=3000&q=100",
       "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=3000&q=100",
@@ -68,6 +86,12 @@
     "price": 38000,
     "badge": null,
     "description": "Remera básica en gris pizarra con corte slim. 100% algodón peinado, perfecta para el día a día. Combina con cualquier look y mantiene su forma lavado tras lavado.",
+    "features": [
+      "Material: algodón peinado 100%",
+      "Corte slim",
+      "Peso ligero ideal para capas",
+      "Lavado a máquina"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=3000&q=100",
       "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=3000&q=100"
@@ -87,6 +111,12 @@
     "price": 259000,
     "badge": "capsula",
     "description": "Campera de jeans en tono índigo con efecto envejecido artesanal. Cierre de botones metálicos y bolsillos frontales con solapa. Un clásico que nunca pasa de moda, reinterpretado con detalles modernos.",
+    "features": [
+      "Material: denim 100% algodón",
+      "Efecto envejecido artesanal",
+      "Cierre de botones metálicos",
+      "Bolsillos frontales con solapa"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=3000&q=100",
       "https://images.unsplash.com/photo-1604644401890-0bd678c83788?w=3000&q=100"
@@ -106,6 +136,12 @@
     "price": 75000,
     "badge": null,
     "description": "Pantalón chino en color crema con corte slim. Tela de algodón liviana con ligero elastano para mayor libertad de movimiento. Ideal para looks smart casual tanto de día como de noche.",
+    "features": [
+      "Material: algodón 97% + elastano 3%",
+      "Corte slim",
+      "Cintura con presilla para cinturón",
+      "Ideal para looks smart casual"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=3000&q=100",
       "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=3000&q=100"
@@ -125,6 +161,12 @@
     "price": 185000,
     "badge": "nuevo",
     "description": "Zapatilla urbana en blanco total con suela de goma moldeada y upper de cuero sintético. Perfil limpio y minimalista que combina con cualquier outfit. Ideal para el día a día con el confort de una runner.",
+    "features": [
+      "Upper en cuero sintético",
+      "Suela de goma moldeada",
+      "Plantilla acolchada removible",
+      "Cierre con cordones planos"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=3000&q=100",
       "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=3000&q=100",
@@ -145,6 +187,12 @@
     "price": 210000,
     "badge": null,
     "description": "Zapatilla de running urbano en negro mate con detalles reflectivos. Upper de malla transpirable y suela de EVA con amortiguación extra. Para quienes entrenan y luego salen sin cambiarse.",
+    "features": [
+      "Upper de malla transpirable",
+      "Suela de EVA con amortiguación",
+      "Detalles reflectivos para seguridad",
+      "Sistema de cordones planos"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=3000&q=100",
       "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=3000&q=100"
@@ -164,6 +212,12 @@
     "price": 235000,
     "badge": "destacado",
     "description": "Zapatilla plataforma con suela extra gruesa y perfil retro noventero. Upper en combinación de materiales: gamuza, cuero y malla. Un statement piece para los que no pasan desapercibidos.",
+    "features": [
+      "Upper en gamuza, cuero y malla",
+      "Suela de plataforma extra gruesa",
+      "Perfil retro noventero",
+      "Plantilla ergonómica"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=3000&q=100",
       "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=3000&q=100"
@@ -183,6 +237,12 @@
     "price": 48000,
     "badge": null,
     "description": "Remera negra oversized con print gráfico en serigrafía al agua. Algodón 100% combed, peso medio ideal para usar suelta o tuckeada. El básico de temporada que nunca falla.",
+    "features": [
+      "Material: algodón combed 100%",
+      "Corte oversized",
+      "Print en serigrafía al agua",
+      "Sin encogimiento tras lavado"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=3000&q=100",
       "https://images.unsplash.com/photo-1527719327859-c6ce80353573?w=3000&q=100"
@@ -202,6 +262,12 @@
     "price": 44000,
     "badge": null,
     "description": "Remera con lavado enzimático en tono terracota, efecto vintage natural. Corte regular con cuello redondo reforzado. Cada pieza es única gracias al proceso de teñido manual.",
+    "features": [
+      "Material: algodón 100%",
+      "Lavado enzimático individual",
+      "Cada pieza es única",
+      "Cuello redondo reforzado"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=3000&q=100",
       "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=3000&q=100"
@@ -221,6 +287,12 @@
     "price": 398000,
     "badge": "destacado",
     "description": "Parka oversized en verde oliva militar con capucha removible y forro interior de polar. Bolsillos laterales con cierre y bolsillo interno. La campera de temporada para días de lluvia o frío urbano.",
+    "features": [
+      "Material exterior: nylon ripstop",
+      "Forro interior de polar",
+      "Capucha removible con regulador",
+      "Múltiples bolsillos con cierre"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=3000&q=100",
       "https://images.unsplash.com/photo-1548126032-079a0fb0099d?w=3000&q=100"
@@ -240,6 +312,12 @@
     "price": 118000,
     "badge": "capsula",
     "description": "Jean baggy en lavado claro con tiro alto y pierna ancha. Parte de la cápsula Denim 2.0, confeccionado en denim reciclado 12oz. Detalles utilitarios: bolsillos tipo cargo y trabillas anchas.",
+    "features": [
+      "Material: denim reciclado 12oz",
+      "Tiro alto con pierna ancha",
+      "Bolsillos tipo cargo",
+      "Parte de la Cápsula Denim 2.0"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1604176354204-9268737828e4?w=3000&q=100",
       "https://images.unsplash.com/photo-1475178626620-a4d074967452?w=3000&q=100"
@@ -259,6 +337,12 @@
     "price": 289000,
     "badge": null,
     "description": "Bomber clásico en negro con puños y cintura elastizados. Tela exterior en nylon ripstop con forro satinado interior. El infaltable del guardarropa urbano que va con absolutamente todo.",
+    "features": [
+      "Material exterior: nylon ripstop",
+      "Forro satinado interior",
+      "Puños y cintura elastizados",
+      "Bolsillo interior con cierre"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=3000&q=100",
       "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=3000&q=100"
@@ -278,6 +362,12 @@
     "price": 95000,
     "badge": "nuevo",
     "description": "Pantalón de vestir con pierna ancha en negro total. Tela de gabardina liviana con caída impecable. Cintura alta con pinzas frontales. De la oficina al after sin escalas.",
+    "features": [
+      "Material: gabardina liviana",
+      "Cintura alta con pinzas frontales",
+      "Pierna ancha con caída impecable",
+      "Apto para uso formal e informal"
+    ],
     "images": [
       "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=3000&q=100",
       "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=3000&q=100"
