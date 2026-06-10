@@ -1,7 +1,7 @@
 import React from 'react'
-import { Check } from '@gravity-ui/icons'
+import { Check, Xmark } from '@gravity-ui/icons'
 
-type StepStatus = 'completed' | 'current' | 'pending'
+type StepStatus = 'completed' | 'current' | 'pending' | 'failed'
 
 export interface Step {
   label: string
@@ -20,6 +20,13 @@ const StepIndicator = ({ step, index }: { step: Step; index: number }) => {
     return (
       <div className="size-7 rounded-full bg-(--accent) flex items-center justify-center text-sm font-bold text-white shrink-0">
         {index + 1}
+      </div>
+    )
+  }
+  if (step.status === 'failed') {
+    return (
+      <div className="size-7 rounded-full bg-[#E50815] flex items-center justify-center shrink-0">
+        <Xmark width={14} height={14} className="text-white" />
       </div>
     )
   }
