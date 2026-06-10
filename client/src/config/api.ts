@@ -1,6 +1,8 @@
+const BASE = import.meta.env.VITE_API_URL ?? ''
+
 export const API = {
-  PRODUCTS: '/api/products',
-  PRODUCT: (id: string) => `/api/products/${id}`,
-  ORDERS: '/api/orders',
-  ORDER_BY_NUMBER: (orderNumber: string) => `/api/orders?orderNumber=${orderNumber}`,
+  PRODUCTS: `${BASE}/products`,
+  PRODUCT: (id: string) => `${BASE}/products/${id}`,
+  ORDERS: `${BASE}/orders`,
+  ORDER_BY_NUMBER: (orderNumber: string) => `${BASE}/orders?orderNumber=${orderNumber}`,
 } as const
