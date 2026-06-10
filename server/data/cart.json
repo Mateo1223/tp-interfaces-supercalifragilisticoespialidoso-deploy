@@ -1,0 +1,20 @@
+{
+  "id": "cart-1",
+  "items": [
+    {
+      "id": "cart-item-1",
+      "productId": "wild-west-vest-black-denim",
+      "quantity": 1
+    },
+    {
+      "id": "cart-item-2",
+      "productId": "urban-wave-tee-off-white",
+      "quantity": 2
+    },
+    {
+      "id": "cart-item-3",
+      "productId": "cargo-pant-olive-drab",
+      "quantity": 1
+    }
+  ]
+}

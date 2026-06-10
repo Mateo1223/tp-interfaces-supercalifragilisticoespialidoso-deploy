@@ -1,0 +1,134 @@
+[
+  {
+    "id": "order-1",
+    "orderNumber": "HR-2026-008417",
+    "cartId": "cart-1",
+    "status": "in_transit",
+    "paymentStatus": "paid",
+    "fulfillmentStatus": "shipped",
+    "currency": "ARS",
+    "createdAt": "2026-05-21T18:00:00.000Z",
+    "estimatedDelivery": {
+      "from": "2026-05-27",
+      "to": "2026-05-28",
+      "label": "Llega entre el miércoles 27 y jueves 28 de Mayo"
+    },
+    "customer": {
+      "email": "marcos@example.com",
+      "phone": "+54 11 5555 0000"
+    },
+    "shippingAddress": {
+      "firstName": "Marcos",
+      "lastName": "García",
+      "address": "Av. Corrientes 1234, 5° B",
+      "city": "Caseros",
+      "province": "Buenos Aires",
+      "postalCode": "1678",
+      "country": "AR"
+    },
+    "payment": {
+      "method": "credit_card",
+      "provider": "visa",
+      "installments": 1,
+      "last4": "3456"
+    },
+    "shipping": {
+      "carrier": "Andreani",
+      "trackingCode": "AR99877665CL",
+      "trackingUrl": "https://seguimiento.andreani.com/AR99877665CL",
+      "currentStatus": "En camino"
+    },
+    "tracking": {
+      "currentStep": 4,
+      "steps": [
+        {
+          "id": "confirmed",
+          "title": "Pedido confirmado",
+          "description": "Recibimos tu pedido y el pago fue acreditado.",
+          "status": "completed",
+          "date": "2026-05-21T14:32:00.000Z"
+        },
+        {
+          "id": "packing",
+          "title": "Preparando tu paquete",
+          "description": "Estamos empacando los productos en nuestro depósito de Mataderos.",
+          "status": "completed",
+          "date": "2026-05-22T09:15:00.000Z"
+        },
+        {
+          "id": "shipped",
+          "title": "Despachado",
+          "description": "El paquete fue entregado al transportista para su distribución.",
+          "status": "completed",
+          "date": "2026-05-23T16:48:00.000Z"
+        },
+        {
+          "id": "in_transit",
+          "title": "En camino",
+          "description": "Tu paquete está en tránsito al centro de Buenos Aires.",
+          "status": "current",
+          "date": "2026-05-24T11:20:00.000Z"
+        },
+        {
+          "id": "city_hub",
+          "title": "En tu ciudad",
+          "description": "Llegará a la sucursal más cercana para la entrega final.",
+          "status": "pending",
+          "date": null
+        },
+        {
+          "id": "out_for_delivery",
+          "title": "En reparto",
+          "description": "El repartidor sale con tu paquete.",
+          "status": "pending",
+          "date": null
+        },
+        {
+          "id": "delivered",
+          "title": "Entregado",
+          "description": "Recibirás un mail con el comprobante.",
+          "status": "pending",
+          "date": null
+        }
+      ]
+    },
+    "items": [
+      {
+        "id": "order-item-1",
+        "productId": "wild-west-vest-black-denim",
+        "name": "Wild West Vest Black Denim",
+        "category": "camperas",
+        "unitPrice": 329000,
+        "quantity": 1,
+        "subtotal": 329000,
+        "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=200&q=80"
+      },
+      {
+        "id": "order-item-2",
+        "productId": "urban-wave-tee-off-white",
+        "name": "Urban Wave Tee Off-White",
+        "category": "remeras",
+        "unitPrice": 42500,
+        "quantity": 2,
+        "subtotal": 85000,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&q=80"
+      },
+      {
+        "id": "order-item-3",
+        "productId": "cargo-pant-olive-drab",
+        "name": "Cargo Pant Olive Drab",
+        "category": "pantalones",
+        "unitPrice": 89900,
+        "quantity": 1,
+        "subtotal": 89900,
+        "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=200&q=80"
+      }
+    ],
+    "summary": {
+      "subtotal": 503900,
+      "shipping": 0,
+      "discount": 0,
+      "total": 503900
+    }
+  }
+]

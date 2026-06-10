@@ -1,26 +1,292 @@
 [
-    {
-      "id": 1,
-      "name": "iPhone 15",
-      "price": 1200,
-      "stock": 8,
-      "category": "phones",
-      "image": "https://picsum.photos/200?1"
+  {
+    "id": "wild-west-vest-black-denim",
+    "name": "Wild West Vest Black Denim",
+    "slug": "wild-west-vest-black-denim",
+    "category": "camperas",
+    "price": 329000,
+    "badge": "capsula",
+    "description": "Chaleco acolchado confeccionado en denim negro con acabado desgastado, ideal para sumar textura y personalidad a cualquier look urbano. Su diseño combina un calce cómodo con un interior abrigado, perfecto para los días frescos. Cuenta con cierre frontal y botones metálicos, además de bolsillos laterales funcionales. Una prenda versátil que se adapta tanto a outfits casuales como a combinaciones más modernas y relajadas.",
+    "images": [
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=3000&q=100",
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=3000&q=100",
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=3000&q=100",
+      "https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=3000&q=100"
+    ],
+    "totalStock": 8,
+    "rating": {
+      "average": 4.8,
+      "count": 247
     },
-    {
-      "id": 2,
-      "name": "MacBook Pro",
-      "price": 2500,
-      "stock": 3,
-      "category": "laptops",
-      "image": "https://picsum.photos/200?2"
+    "salesCount": 9200
+  },
+  {
+    "id": "urban-wave-tee-off-white",
+    "name": "Urban Wave Tee Off-White",
+    "slug": "urban-wave-tee-off-white",
+    "category": "remeras",
+    "price": 42500,
+    "badge": "nuevo",
+    "description": "Remera de algodón con lavado off-white y gráfica minimalista. Corte oversized pensado para looks urbanos relajados, con tela suave al tacto y excelente caída. Ideal para el día a día, tanto sola como en capas.",
+    "images": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=3000&q=100",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=3000&q=100",
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=3000&q=100"
+    ],
+    "totalStock": 24,
+    "rating": {
+      "average": 4.6,
+      "count": 183
     },
-    {
-      "id": 3,
-      "name": "AirPods Pro",
-      "price": 300,
-      "stock": 15,
-      "category": "audio",
-      "image": "https://picsum.photos/200?3"
-    }
+    "salesCount": 5400
+  },
+  {
+    "id": "cargo-pant-olive-drab",
+    "name": "Cargo Pant Olive Drab",
+    "slug": "cargo-pant-olive-drab",
+    "category": "pantalones",
+    "price": 89900,
+    "badge": null,
+    "description": "Pantalón cargo en color verde oliva militar con bolsillos laterales de solapa y cintura elastizada. Tela resistente de algodón ripstop, pensado para uso casual y outdoor. Amplio y cómodo sin perder el estilo.",
+    "images": [
+      "https://images.unsplash.com/photo-1542272604-787c3835535d?w=3000&q=100",
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=3000&q=100",
+      "https://images.unsplash.com/photo-1509551388413-e18d0ac5d495?w=3000&q=100"
+    ],
+    "totalStock": 12,
+    "rating": {
+      "average": 4.7,
+      "count": 312
+    },
+    "salesCount": 7100
+  },
+  {
+    "id": "minimal-tee-slate-grey",
+    "name": "Minimal Tee Slate Grey",
+    "slug": "minimal-tee-slate-grey",
+    "category": "remeras",
+    "price": 38000,
+    "badge": null,
+    "description": "Remera básica en gris pizarra con corte slim. 100% algodón peinado, perfecta para el día a día. Combina con cualquier look y mantiene su forma lavado tras lavado.",
+    "images": [
+      "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=3000&q=100",
+      "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=3000&q=100"
+    ],
+    "totalStock": 30,
+    "rating": {
+      "average": 4.5,
+      "count": 95
+    },
+    "salesCount": 3200
+  },
+  {
+    "id": "vintage-denim-jacket-indigo",
+    "name": "Vintage Denim Jacket Indigo",
+    "slug": "vintage-denim-jacket-indigo",
+    "category": "camperas",
+    "price": 259000,
+    "badge": "capsula",
+    "description": "Campera de jeans en tono índigo con efecto envejecido artesanal. Cierre de botones metálicos y bolsillos frontales con solapa. Un clásico que nunca pasa de moda, reinterpretado con detalles modernos.",
+    "images": [
+      "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=3000&q=100",
+      "https://images.unsplash.com/photo-1604644401890-0bd678c83788?w=3000&q=100"
+    ],
+    "totalStock": 6,
+    "rating": {
+      "average": 4.9,
+      "count": 421
+    },
+    "salesCount": 11500
+  },
+  {
+    "id": "slim-chino-cream",
+    "name": "Slim Chino Cream",
+    "slug": "slim-chino-cream",
+    "category": "pantalones",
+    "price": 75000,
+    "badge": null,
+    "description": "Pantalón chino en color crema con corte slim. Tela de algodón liviana con ligero elastano para mayor libertad de movimiento. Ideal para looks smart casual tanto de día como de noche.",
+    "images": [
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=3000&q=100",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=3000&q=100"
+    ],
+    "totalStock": 18,
+    "rating": {
+      "average": 4.4,
+      "count": 67
+    },
+    "salesCount": 2800
+  },
+  {
+    "id": "air-edge-white-sneaker",
+    "name": "Air Edge White Sneaker",
+    "slug": "air-edge-white-sneaker",
+    "category": "zapatillas",
+    "price": 185000,
+    "badge": "nuevo",
+    "description": "Zapatilla urbana en blanco total con suela de goma moldeada y upper de cuero sintético. Perfil limpio y minimalista que combina con cualquier outfit. Ideal para el día a día con el confort de una runner.",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=3000&q=100",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=3000&q=100",
+      "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=3000&q=100"
+    ],
+    "totalStock": 20,
+    "rating": {
+      "average": 4.7,
+      "count": 156
+    },
+    "salesCount": 4300
+  },
+  {
+    "id": "urban-runner-black",
+    "name": "Urban Runner Black",
+    "slug": "urban-runner-black",
+    "category": "zapatillas",
+    "price": 210000,
+    "badge": null,
+    "description": "Zapatilla de running urbano en negro mate con detalles reflectivos. Upper de malla transpirable y suela de EVA con amortiguación extra. Para quienes entrenan y luego salen sin cambiarse.",
+    "images": [
+      "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=3000&q=100",
+      "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=3000&q=100"
+    ],
+    "totalStock": 14,
+    "rating": {
+      "average": 4.6,
+      "count": 89
+    },
+    "salesCount": 3100
+  },
+  {
+    "id": "chunky-sole-platform",
+    "name": "Chunky Sole Platform",
+    "slug": "chunky-sole-platform",
+    "category": "zapatillas",
+    "price": 235000,
+    "badge": "destacado",
+    "description": "Zapatilla plataforma con suela extra gruesa y perfil retro noventero. Upper en combinación de materiales: gamuza, cuero y malla. Un statement piece para los que no pasan desapercibidos.",
+    "images": [
+      "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=3000&q=100",
+      "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=3000&q=100"
+    ],
+    "totalStock": 9,
+    "rating": {
+      "average": 4.8,
+      "count": 203
+    },
+    "salesCount": 5800
+  },
+  {
+    "id": "oversized-graphic-tee-black",
+    "name": "Oversized Graphic Tee Black",
+    "slug": "oversized-graphic-tee-black",
+    "category": "remeras",
+    "price": 48000,
+    "badge": null,
+    "description": "Remera negra oversized con print gráfico en serigrafía al agua. Algodón 100% combed, peso medio ideal para usar suelta o tuckeada. El básico de temporada que nunca falla.",
+    "images": [
+      "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=3000&q=100",
+      "https://images.unsplash.com/photo-1527719327859-c6ce80353573?w=3000&q=100"
+    ],
+    "totalStock": 35,
+    "rating": {
+      "average": 4.5,
+      "count": 112
+    },
+    "salesCount": 4100
+  },
+  {
+    "id": "washed-tee-terracotta",
+    "name": "Washed Tee Terracotta",
+    "slug": "washed-tee-terracotta",
+    "category": "remeras",
+    "price": 44000,
+    "badge": null,
+    "description": "Remera con lavado enzimático en tono terracota, efecto vintage natural. Corte regular con cuello redondo reforzado. Cada pieza es única gracias al proceso de teñido manual.",
+    "images": [
+      "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=3000&q=100",
+      "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=3000&q=100"
+    ],
+    "totalStock": 22,
+    "rating": {
+      "average": 4.3,
+      "count": 78
+    },
+    "salesCount": 2400
+  },
+  {
+    "id": "street-parka-olive",
+    "name": "Street Parka Olive",
+    "slug": "street-parka-olive",
+    "category": "camperas",
+    "price": 398000,
+    "badge": "destacado",
+    "description": "Parka oversized en verde oliva militar con capucha removible y forro interior de polar. Bolsillos laterales con cierre y bolsillo interno. La campera de temporada para días de lluvia o frío urbano.",
+    "images": [
+      "https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=3000&q=100",
+      "https://images.unsplash.com/photo-1548126032-079a0fb0099d?w=3000&q=100"
+    ],
+    "totalStock": 11,
+    "rating": {
+      "average": 4.7,
+      "count": 167
+    },
+    "salesCount": 6200
+  },
+  {
+    "id": "baggy-denim-light-wash",
+    "name": "Baggy Denim Light Wash",
+    "slug": "baggy-denim-light-wash",
+    "category": "pantalones",
+    "price": 118000,
+    "badge": "capsula",
+    "description": "Jean baggy en lavado claro con tiro alto y pierna ancha. Parte de la cápsula Denim 2.0, confeccionado en denim reciclado 12oz. Detalles utilitarios: bolsillos tipo cargo y trabillas anchas.",
+    "images": [
+      "https://images.unsplash.com/photo-1604176354204-9268737828e4?w=3000&q=100",
+      "https://images.unsplash.com/photo-1475178626620-a4d074967452?w=3000&q=100"
+    ],
+    "totalStock": 7,
+    "rating": {
+      "average": 4.9,
+      "count": 94
+    },
+    "salesCount": 3800
+  },
+  {
+    "id": "bomber-jacket-black",
+    "name": "Bomber Jacket Black",
+    "slug": "bomber-jacket-black",
+    "category": "camperas",
+    "price": 289000,
+    "badge": null,
+    "description": "Bomber clásico en negro con puños y cintura elastizados. Tela exterior en nylon ripstop con forro satinado interior. El infaltable del guardarropa urbano que va con absolutamente todo.",
+    "images": [
+      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=3000&q=100",
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=3000&q=100"
+    ],
+    "totalStock": 16,
+    "rating": {
+      "average": 4.6,
+      "count": 231
+    },
+    "salesCount": 8900
+  },
+  {
+    "id": "wide-leg-trouser-black",
+    "name": "Wide Leg Trouser Black",
+    "slug": "wide-leg-trouser-black",
+    "category": "pantalones",
+    "price": 95000,
+    "badge": "nuevo",
+    "description": "Pantalón de vestir con pierna ancha en negro total. Tela de gabardina liviana con caída impecable. Cintura alta con pinzas frontales. De la oficina al after sin escalas.",
+    "images": [
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=3000&q=100",
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=3000&q=100"
+    ],
+    "totalStock": 19,
+    "rating": {
+      "average": 4.5,
+      "count": 143
+    },
+    "salesCount": 4700
+  }
 ]

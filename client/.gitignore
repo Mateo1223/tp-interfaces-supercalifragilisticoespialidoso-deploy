@@ -25,3 +25,5 @@ dist-ssr
 .idea
 .env
 .npmrc
+*storybook.log
+storybook-static

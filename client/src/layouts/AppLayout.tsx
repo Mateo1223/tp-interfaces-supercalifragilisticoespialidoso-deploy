@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const AppLayout = () => (
   <div>
-    <nav>...</nav>
-    <main>
-      <Outlet /> {/* acá se renderiza la página activa */}
-    </main>
+    <Header />
+    <Outlet />
+    <Footer />
   </div>
 )
 
