@@ -31,6 +31,7 @@ const mockProducts = [
     totalStock: 10,
     rating: { average: 4.6, count: 183 },
     salesCount: 5400,
+    features: [],
   },
   {
     id: '2',
@@ -44,6 +45,7 @@ const mockProducts = [
     totalStock: 12,
     rating: { average: 4.7, count: 312 },
     salesCount: 7100,
+    features: [],
   },
   {
     id: '3',
@@ -57,6 +59,7 @@ const mockProducts = [
     totalStock: 6,
     rating: { average: 4.9, count: 421 },
     salesCount: 11500,
+    features: [],
   },
   {
     id: '4',
@@ -70,6 +73,7 @@ const mockProducts = [
     totalStock: 30,
     rating: { average: 4.5, count: 95 },
     salesCount: 3200,
+    features: [],
   },
 ]
 

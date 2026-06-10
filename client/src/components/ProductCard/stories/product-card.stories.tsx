@@ -29,6 +29,7 @@ const base = {
   totalStock: 10,
   rating: { average: 4.6, count: 183 },
   salesCount: 5400,
+  features: [],
 }
 
 export const Default: Story = {
