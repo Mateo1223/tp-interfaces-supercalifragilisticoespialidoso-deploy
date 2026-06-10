@@ -61,12 +61,15 @@ const CartButton = ({
 const ProductCard = ({ product }: { product: Product }) => {
   const outOfStock = product.totalStock === 0
   const navigate = useNavigate()
-  const { addItem } = useCart()
+  const { addItem, cart } = useCart()
   const [added, setAdded] = useState(false)
+
+  const cartQuantity = cart?.items.find((i) => i.productId === product.id)?.quantity ?? 0
+  const maxReached = cartQuantity >= product.totalStock
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation()
-    if (outOfStock || added) return
+    if (outOfStock || added || maxReached) return
     addItem(product.id)
     setAdded(true)
     setTimeout(() => setAdded(false), 1500)
@@ -88,7 +91,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             outOfStock ? 'opacity-40' : 'group-hover:scale-[1.03]',
           )}
         />
-        {!outOfStock && <CartButton added={added} onClick={handleAddToCart} />}
+        {!outOfStock && !maxReached && <CartButton added={added} onClick={handleAddToCart} />}
       </div>
 
       <div className="py-3 gap-1">

@@ -378,5 +378,30 @@
       "count": 143
     },
     "salesCount": 4700
+  },
+  {
+    "id": "vintage-knit-sweater-cream",
+    "name": "Vintage Knit Sweater Cream",
+    "slug": "vintage-knit-sweater-cream",
+    "category": "remeras",
+    "price": 76000,
+    "badge": null,
+    "description": "Sweater de punto en tono crema con textura vintage y cuello redondo. Confeccionado en lana merino con acabado suave al tacto. Una pieza atemporal que se agotó antes de lo esperado.",
+    "features": [
+      "Material: lana merino 80% / acrílico 20%",
+      "Cuello redondo clásico",
+      "Textura de punto grueso",
+      "Lavado a mano recomendado"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=3000&q=100",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=3000&q=100"
+    ],
+    "totalStock": 0,
+    "rating": {
+      "average": 4.8,
+      "count": 312
+    },
+    "salesCount": 15400
   }
 ]

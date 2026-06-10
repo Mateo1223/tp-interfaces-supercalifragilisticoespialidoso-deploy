@@ -14,8 +14,8 @@ import type { Product } from '../../../types/product'
 const formatSales = (count: number) =>
   count >= 1000 ? `+${Math.floor(count / 1000)}k` : `+${count}`
 
-const addToCartLabel = (outOfStock: boolean, added: boolean) => {
-  if (outOfStock) return 'Sin stock'
+const addToCartLabel = (outOfStock: boolean, added: boolean, maxReached: boolean) => {
+  if (outOfStock || maxReached) return 'Sin stock'
   if (added) return 'Agregado al carrito'
   return 'Agregar al carrito'
 }
@@ -26,13 +26,16 @@ interface Props {
 
 const ProductDetailView = ({ product }: Props) => {
   const navigate = useNavigate()
-  const { addItem } = useCart()
+  const { addItem, cart } = useCart()
   const [selectedImage, setSelectedImage] = useState(0)
   const [added, setAdded] = useState(false)
 
   const outOfStock = product.totalStock === 0
+  const cartQuantity = cart?.items.find((i) => i.productId === product.id)?.quantity ?? 0
+  const maxReached = cartQuantity >= product.totalStock
 
   const handleAddToCart = () => {
+    if (outOfStock || maxReached) return
     addItem(product.id)
     setAdded(true)
     setTimeout(() => setAdded(false), 2000)
@@ -141,10 +144,10 @@ const ProductDetailView = ({ product }: Props) => {
                 fullWidth
                 className="rounded-full"
                 onPress={handleAddToCart}
-                isDisabled={added || outOfStock}
+                isDisabled={added || outOfStock || maxReached}
               >
                 <ShoppingCart width={16} height={16} />
-                {addToCartLabel(outOfStock, added)}
+                {addToCartLabel(outOfStock, added, maxReached)}
               </Button>
               <InfoCard
                 icon={<ArrowRotateLeft width={18} height={18} className="text-(--accent)" />}
