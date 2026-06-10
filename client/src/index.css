@@ -8,6 +8,12 @@
   --font-sans: 'Outfit', ui-sans-serif, sans-serif;
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 :root,
 .light,
 .default,
@@ -34,7 +40,7 @@
   --segment: oklch(100% 0.0015 27.99);
   --segment-foreground: oklch(21.03% 0.0015 27.99);
   --separator: oklch(92% 0.0015 27.99);
-  --success: #16A34A;
+  --success: #16a34a;
   --success-foreground: oklch(21.03% 0.0059 123.71);
   --surface: oklch(100% 0.0008 27.99);
   --surface-foreground: oklch(21.03% 0.0015 27.99);
@@ -77,7 +83,7 @@
   --segment: oklch(39.64% 0.0015 27.99);
   --segment-foreground: oklch(99.11% 0.0015 27.99);
   --separator: oklch(25% 0.0015 27.99);
-  --success: #16A34A;
+  --success: #16a34a;
   --success-foreground: oklch(21.03% 0.0059 123.71);
   --surface: oklch(21.03% 0.003 27.99);
   --surface-foreground: oklch(99.11% 0.0015 27.99);
