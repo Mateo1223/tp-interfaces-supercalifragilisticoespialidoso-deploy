@@ -53,10 +53,11 @@ const ShippingForm = ({ defaultValues }: Props) => (
       isRequired
       fullWidth
       defaultSelectedKey={defaultValues?.shippingMethod}
+      placeholder="Selecciona un metodo de entrega"
     >
       <Label>Método de entrega</Label>
       <Select.Trigger>
-        <Select.Value placeholder="Seleccioná el método" />
+        <Select.Value />
         <Select.Indicator />
       </Select.Trigger>
       <Select.Popover>

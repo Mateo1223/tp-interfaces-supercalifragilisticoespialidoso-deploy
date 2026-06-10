@@ -7,7 +7,7 @@ en detalle, armar un carrito de compras y simular una compra completa con seguim
 
 ## Demo
 
-🔗 [hero-store.vercel.app](https://hero-store.vercel.app)
+🔗 [https://tp-interfaces-supercalifragilistico-eight.vercel.app/](https://tp-interfaces-supercalifragilistico-eight.vercel.app/)
 
 ## Capturas de pantalla
 
@@ -73,9 +73,8 @@ npm run dev        # corre en http://localhost:5173
 
 ## Integrantes
 
-| Nombre                | GitHub                                               |
-|-----------------------|------------------------------------------------------|
-| Thomas Barenghi       | [@thomasbarenghi](https://github.com/thomasbarenghi) |
-| <!-- integrante 2 --> |                                                      |
-| <!-- integrante 3 --> |                                                      |
-| <!-- integrante 4 --> |                                                      |
+| Nombre                 | GitHub                                               |
+|------------------------|------------------------------------------------------|
+| Thomas Barenghi        | [@thomasbarenghi](https://github.com/thomasbarenghi) |
+| Mateo Sanchez Sa       | [@Mateo1223](https://github.com/Mateo1223)           |
+| Bosco Gerace Manriquez | [@boscocesar](https://github.com/boscocesar)         |
